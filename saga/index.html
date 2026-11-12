@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="robots" content="noai, noimageai">
-<meta name="description" content="Saga: Of People, Through People, a teacher-led classroom tool for colleges and universities in India, in development: student reasoning in the lecture, for as long as the teacher sets, read on the phone, so the teacher can see the class's picture before the next lecture, with no student ranked or scored.">
+<meta name="description" content="Saga: Of People, Through People, a teacher-led classroom tool for colleges and universities in India, in development: in the lecture, each student works through the teacher's questions in a short written dialogue on a phone; a small model on the phone will read the working, so the teacher will see the class's picture before the next lecture, with no student ranked or scored.">
 <title>Saga: Of People, Through People</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preload" href="../fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
@@ -37,126 +37,136 @@
     <div class="cover-text">
       <h1 class="promise" id="promise"><span class="p-title logo">Saga<svg class="star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#star" width="24" height="24"/></svg><span class="sr">:</span></span> <span class="p-tag">Of People, Through People</span></h1>
       <p class="lede">Know what your class understood before the next lecture.</p>
+      <p class="aug">AI that helps people think deeper, with more variables in mind, rather than thinking for them.</p>
       <p class="chip">A teacher-led classroom tool for colleges and universities in India · in development · preparing a first pilot</p>
       <p class="actions"><a class="button" href="#contact">Talk to us about a pilot</a></p>
     </div>
     <figure class="frame">
       <picture>
-        <source type="image/webp" srcset="img/class-560.webp 560w, img/class-1024.webp 1024w" sizes="(min-width: 60rem) 36rem, 90vw">
-        <img src="img/class-560.jpg" srcset="img/class-560.jpg 560w, img/class-1024.jpg 1024w" sizes="(min-width: 60rem) 36rem, 90vw" width="1024" height="1024" fetchpriority="high" alt="A teacher at a whiteboard in a lecture hall; the students on the benches, each writing on a phone.">
+        <source type="image/webp" srcset="img/class-560.webp 560w, img/class-1024.webp 1024w" sizes="(min-width: 60rem) 36rem, (min-width: 34rem) 30rem, 90vw">
+        <img src="img/class-560.jpg" srcset="img/class-560.jpg 560w, img/class-1024.jpg 1024w" sizes="(min-width: 60rem) 36rem, (min-width: 34rem) 30rem, 90vw" width="1024" height="1024" fetchpriority="high" alt="In a college classroom, a student explains at the whiteboard while the teacher listens; the class faces them, notebooks open, phones set down.">
       </picture>
     </figure>
   </section>
 
   <section id="problem" aria-labelledby="problem-h">
     <div class="part">
+      <p class="label centre act">The problem</p>
       <h2 id="problem-h" class="centre">The exam tells a teacher too late, and too little.</h2>
       <picture class="sheet teachers">
-        <source type="image/webp" srcset="img/teachers-640.webp 640w, img/teachers-1024.webp 1024w" sizes="(min-width: 48rem) 40rem, 92vw">
-        <img src="img/teachers-640.jpg" srcset="img/teachers-640.jpg 640w, img/teachers-1024.jpg 1024w" sizes="(min-width: 48rem) 40rem, 92vw" width="1024" height="756" loading="lazy" decoding="async" alt="Three college teachers.">
+        <source type="image/webp" srcset="img/teachers-640.webp 640w, img/teachers-1024.webp 1024w" sizes="(min-width: 36rem) 32rem, 92vw">
+        <img src="img/teachers-640.jpg" srcset="img/teachers-640.jpg 640w, img/teachers-1024.jpg 1024w" sizes="(min-width: 36rem) 32rem, 92vw" width="1024" height="756" loading="lazy" decoding="async" alt="Three college teachers.">
       </picture>
       <p class="lead centre">Teaching is a feedback loop, and a loop is only as good as its measurement. In a typical college classroom in India, the main measurement is the exam.</p>
-    </div>
-    <div class="band">
       <ul class="three">
-        <li><p class="word">Too late</p><p>Results arrive weeks after the lecture, when the class has moved on to the topics that depend on it.</p></li>
+        <li><p class="word">Too late</p><p>Results arrive weeks after the lecture, when the class has moved on.</p></li>
         <li><p class="word">Too little</p><p>A score: how many got it right.</p></li>
         <li><p class="word">Under pressure</p><p>A graded test measures performance under pressure.</p></li>
-        <li><p class="word">Too many</p><p>One teacher faces a full lecture hall. No one can read every student's reasoning before the next lecture.</p></li>
-        <li><p class="word">Too much</p><p>What there is to learn keeps growing; the semester does not. A teacher must cover more in the same hours, with less time to check what has landed.</p></li>
+        <li><p class="word">Too many</p><p>No one can read every student's working before the next lecture.</p></li>
+        <li><p class="word">Too much</p><p>What there is to learn keeps growing; the semester does not, and there is less time to check what has landed.</p></li>
       </ul>
-      <div class="ai">
-        <p><strong>And AI now writes the perfect answer.</strong> A finished assignment no longer shows that a student can reason, and leaning on AI can leave students less able to solve problems on their own. In a field experiment with about 1,000 high-school students, those who practised with an unguarded AI did better in practice, but scored 17% lower on a later exam without it than students who never had it.<sup><a href="#source-1" id="ref-1" aria-label="Source 1">1</a></sup></p>
-        <p class="source" id="source-1"><span aria-hidden="true">1 </span>Bastani et al., <a href="https://doi.org/10.1073/pnas.2422633122">“Generative AI without guardrails can harm learning”</a>, <i>PNAS</i>, 2025.</p>
-      </div>
     </div>
   </section>
 
-  <section class="part" id="idea" aria-labelledby="idea-h">
-    <h2 id="idea-h" class="centre">One score, and the class's picture behind it</h2>
-    <div class="grid">
-      <figure class="tile picture">
-        <svg class="draw" viewBox="0 0 720 480" role="img" focusable="false" aria-labelledby="pic-t pic-d">
-      <title id="pic-t">One score, and the class's picture behind it</title>
-      <desc id="pic-d">An illustration, not data. At the top left, three inks merge into one mark, labelled one score. Lines lead from it to four groups of dots: a large group labelled understood, two groups labelled mistaken idea A and mistaken idea B, and a few hollow dots labelled too thin to tell.</desc>
-      <g>
-        <path class="link" d="M130 150C141.4 147.8 175.4 139.4 198.4 137.1C221.4 134.7 245 137.3 268.1 135.8C291.2 134.3 314 130.4 337 128C360 125.5 383.1 123.7 406.1 121.2C429.1 118.7 463.5 114.4 475 113"/>
-        <path class="link" d="M130 150C130.4 156 132.4 174 132.4 186C132.5 198 130.9 209.9 130.2 221.8C129.5 233.7 130.1 245.7 128.1 257.6C126.2 269.4 119.9 281.1 118.7 293C117.5 304.9 120.6 323 121 329"/>
-        <path class="link" d="M130 150C137.1 156.8 157.6 178 172.4 190.6C187.2 203.3 202.4 215.4 218.8 226C235.3 236.6 254.6 243.5 271 254.2C287.4 264.8 302.4 277.2 317.2 289.9C332.1 302.5 352.9 323.3 360 330"/>
-        <path class="link" d="M130 150C145.4 156.9 190.9 179.5 222.4 191.7C253.9 203.8 287.4 210.9 319 222.8C350.6 234.6 380.5 250.8 412.1 262.8C443.6 274.7 476.7 282.8 508.4 294.5C540 306.2 586.4 326.6 602 333"/>
-      </g>
-      <use class="mark" href="#mk" x="66" y="90" width="130" height="123"/>
-      <g class="dot-c">
-        <circle cx="432" cy="72" r="10"/><circle cx="461" cy="60" r="10"/><circle cx="494" cy="68" r="10"/><circle cx="521" cy="90" r="10"/>
-        <circle cx="447" cy="99" r="10"/><circle cx="478" cy="95" r="10"/><circle cx="414" cy="108" r="10"/><circle cx="505" cy="120" r="10"/>
-        <circle cx="536" cy="124" r="10"/><circle cx="440" cy="132" r="10"/><circle cx="471" cy="128" r="10"/><circle cx="420" cy="158" r="10"/>
-        <circle cx="490" cy="154" r="10"/><circle cx="459" cy="166" r="10"/>
-      </g>
-      <g class="dot-b">
-        <circle cx="96" cy="296" r="10"/><circle cx="126" cy="290" r="10"/><circle cx="152" cy="308" r="10"/><circle cx="82" cy="326" r="10"/>
-        <circle cx="112" cy="322" r="10"/><circle cx="142" cy="338" r="10"/><circle cx="96" cy="354" r="10"/><circle cx="126" cy="358" r="10"/>
-        <circle cx="154" cy="366" r="10"/>
-      </g>
-      <g class="dot-a">
-        <circle cx="342" cy="297" r="10"/><circle cx="377" cy="300" r="10"/><circle cx="328" cy="331" r="10"/><circle cx="360" cy="327" r="10"/>
-        <circle cx="393" cy="337" r="10"/><circle cx="348" cy="361" r="10"/><circle cx="380" cy="364" r="10"/>
-      </g>
-      <g class="thin">
-        <circle cx="580" cy="306" r="10"/><circle cx="622" cy="300" r="10"/><circle cx="600" cy="338" r="10"/><circle cx="634" cy="350" r="10"/>
-        <circle cx="570" cy="360" r="10"/>
-      </g>
-      <text class="lab" x="130" y="62" text-anchor="middle">one score</text>
-      <text class="lab" x="475" y="222" text-anchor="middle">understood</text>
-      <text class="lab" x="121" y="420" text-anchor="middle"><tspan x="121">mistaken</tspan><tspan x="121" dy="34">idea A</tspan></text>
-      <text class="lab" x="360" y="420" text-anchor="middle"><tspan x="360">mistaken</tspan><tspan x="360" dy="34">idea B</tspan></text>
-      <text class="lab" x="602" y="420" text-anchor="middle"><tspan x="602">too thin</tspan><tspan x="602" dy="34">to tell</tspan></text>
-    </svg>
-        <figcaption><span class="label">An illustration, not data</span> A score merges many reasons into one mark. Saga is designed to pull apart the mistaken ideas the teacher's certified questions are built to catch, and to say when the evidence is too thin.</figcaption>
-      </figure>
-      <div class="tile second">
-        <p class="lead">Saga is designed as a second measurement, with the opposite properties:</p>
-        <dl>
-          <div><dt>When</dt><dd>Evidence before the next lecture.</dd></div>
-          <div><dt>What</dt><dd>The reasoning: which mistaken ideas the class holds.</dd></div>
-          <div><dt>Stakes</dt><dd>What the student writes is never marked, and never read for attendance.</dd></div>
-        </dl>
-      </div>
-    </div>
+  <!-- Why now, and what is different: AI's answer and Saga's turn in one short band, so the first never stands without the second.
+       The turn is the founder's (WEB-Q64, 13 Nov): AI that enhances critical reasoning, not a claim that it makes people more capable. -->
+  <section class="band why" id="idea" aria-labelledby="idea-h">
+    <p class="label centre act">Why now</p>
+    <h2 id="idea-h" class="centre">And AI now writes the answer.</h2>
+    <p class="fact centre">A finished assignment no longer shows that a student can reason. In a field experiment with about 1,000 high-school maths students, those who practised with an unguarded AI did better in practice, but scored 17% lower on a later exam without it than students who never had it; a version with safeguards largely mitigated that drop.<sup><a href="#source-1" id="ref-1" aria-label="Source 1">1</a></sup></p>
+    <p class="source centre" id="source-1"><span aria-hidden="true">1 </span>Bastani et al., <a href="https://doi.org/10.1073/pnas.2422633122">“Generative AI without guardrails can harm learning”</a>, <i>PNAS</i>, 2025.</p>
+    <svg class="turn-star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#star" width="24" height="24"/></svg>
+    <p class="turn centre">Saga turns AI the other way.</p>
+    <p class="lead centre">It is designed to enhance critical reasoning, not to stand in for it.</p>
+    <ul class="stays">
+      <li><p><strong>The teacher</strong> will see how the class reasoned, before the next lecture.</p></li>
+      <li><p><strong>The student</strong> will be asked, not told: hints before answers, so the reasoning stays their own.</p></li>
+      <li><p><strong>The decisions stay with people:</strong> what to teach next is the teacher's call, and what to work on is the student's.</p></li>
+    </ul>
   </section>
 
   <section class="part" id="class" aria-labelledby="class-h">
+    <p class="label centre act">The solution</p>
     <h2 id="class-h" class="centre">How a class will run</h2>
     <p class="lead centre"><strong>Before the lecture, the teacher certifies the questions.</strong> AI may draft them; the questions the teacher certifies bound everything students see.</p>
+    <!-- Four cards, clockwise round the loop on a wide screen (WEB-Q62 (a), WEB-Q63 (c) with (e)), each with the founder's
+         picture of the website note §53.7: the lecture, the thinking pause, the bench, the staff room (§53.13). -->
+    <!-- Card 1's last sentence is the founder's choice (WEB-Q70 (b), 13 Nov). -->
     <ol class="steps">
       <li><picture class="fig">
-          <source type="image/webp" srcset="img/reason-400.webp 400w, img/reason-800.webp 800w" sizes="(min-width: 60rem) 21rem, 92vw">
-          <img src="img/reason-400.jpg" srcset="img/reason-400.jpg 400w, img/reason-800.jpg 800w" sizes="(min-width: 60rem) 21rem, 92vw" width="800" height="800" loading="lazy" decoding="async" alt="">
+          <source type="image/webp" srcset="img/lecture-400.webp 400w, img/lecture-800.webp 800w" sizes="(min-width: 60rem) 24rem, (min-width: 40rem) 13rem, 92vw">
+          <img src="img/lecture-400.jpg" srcset="img/lecture-400.jpg 400w, img/lecture-800.jpg 800w" sizes="(min-width: 60rem) 24rem, (min-width: 40rem) 13rem, 92vw" width="800" height="800" loading="lazy" decoding="async" alt="">
         </picture>
-        <p class="when">In the lecture</p><p><strong>Students reason for as long as the teacher sets,</strong> each on a phone. A dropped connection won't lose their work.</p></li>
+        <p class="when">In the lecture</p><p><strong>The teacher teaches, as in any lecture:</strong> explains, asks the class, and the students think it through aloud together. Saga begins only when the teacher says so.</p></li>
       <li><picture class="fig">
-          <source type="image/webp" srcset="img/phone-400.webp 400w, img/phone-800.webp 800w" sizes="(min-width: 60rem) 21rem, 92vw">
-          <img src="img/phone-400.jpg" srcset="img/phone-400.jpg 400w, img/phone-800.jpg 800w" sizes="(min-width: 60rem) 21rem, 92vw" width="800" height="800" loading="lazy" decoding="async" alt="">
+          <source type="image/webp" srcset="img/reason-400.webp 400w, img/reason-800.webp 800w" sizes="(min-width: 60rem) 24rem, (min-width: 40rem) 13rem, 92vw">
+          <img src="img/reason-400.jpg" srcset="img/reason-400.jpg 400w, img/reason-800.jpg 800w" sizes="(min-width: 60rem) 24rem, (min-width: 40rem) 13rem, 92vw" width="800" height="800" loading="lazy" decoding="async" alt="">
         </picture>
-        <p class="when">On the phone</p><p><strong>A small AI model will read the reasoning,</strong> only inside the teacher's questions, and only once it has passed an accuracy test. Until it passes, no class picture is made.</p></li>
+        <p class="when">Then, the reasoning</p><p><strong>For the minutes the teacher sets, each student works through the teacher's questions in a short written dialogue on a phone,</strong> showing their working as Saga asks. The teacher stays in charge: they can stop it for everyone, or quietly give a student more time.</p></li>
       <li><picture class="fig">
-          <source type="image/webp" srcset="img/desk-400.webp 400w, img/desk-800.webp 800w" sizes="(min-width: 60rem) 21rem, 92vw">
-          <img src="img/desk-400.jpg" srcset="img/desk-400.jpg 400w, img/desk-800.jpg 800w" sizes="(min-width: 60rem) 21rem, 92vw" width="800" height="800" loading="lazy" decoding="async" alt="">
+          <source type="image/webp" srcset="img/phone-400.webp 400w, img/phone-800.webp 800w" sizes="(min-width: 60rem) 24rem, (min-width: 40rem) 13rem, 92vw">
+          <img src="img/phone-400.jpg" srcset="img/phone-400.jpg 400w, img/phone-800.jpg 800w" sizes="(min-width: 60rem) 24rem, (min-width: 40rem) 13rem, 92vw" width="800" height="800" loading="lazy" decoding="async" alt="">
+        </picture>
+        <p class="when">On the phone</p><p><strong>A small AI model will read each student's working,</strong> only inside the teacher's questions, and only once it has passed an accuracy test. Until it passes, no class picture is made.</p></li>
+      <li><picture class="fig">
+          <source type="image/webp" srcset="img/desk-400.webp 400w, img/desk-800.webp 800w" sizes="(min-width: 60rem) 24rem, (min-width: 40rem) 13rem, 92vw">
+          <img src="img/desk-400.jpg" srcset="img/desk-400.jpg 400w, img/desk-800.jpg 800w" sizes="(min-width: 60rem) 24rem, (min-width: 40rem) 13rem, 92vw" width="800" height="800" loading="lazy" decoding="async" alt="">
         </picture>
         <p class="when">Before the next lecture</p><p><strong>The teacher will see the class's picture:</strong> what it understood, and which mistaken ideas held it back. Where the evidence is too thin, Saga will say so. The teacher decides what to change.</p></li>
     </ol>
+    <!-- What card 4's teacher will see, drawn: one score, and the class's picture behind it. -->
+    <figure class="tile picture">
+      <svg class="draw" viewBox="0 0 720 480" role="img" focusable="false" aria-labelledby="pic-t pic-d">
+    <title id="pic-t">One score, and the class's picture behind it</title>
+    <desc id="pic-d">An illustration, not data. At the top left, three inks merge into one mark, labelled one score. Lines lead from it to four groups of dots: a large group labelled understood, two groups labelled mistaken idea A and mistaken idea B, and a few hollow dots labelled too thin to tell.</desc>
+    <g>
+      <path class="link" d="M130 150C141.4 147.8 175.4 139.4 198.4 137.1C221.4 134.7 245 137.3 268.1 135.8C291.2 134.3 314 130.4 337 128C360 125.5 383.1 123.7 406.1 121.2C429.1 118.7 463.5 114.4 475 113"/>
+      <path class="link" d="M130 150C130.4 156 132.4 174 132.4 186C132.5 198 130.9 209.9 130.2 221.8C129.5 233.7 130.1 245.7 128.1 257.6C126.2 269.4 119.9 281.1 118.7 293C117.5 304.9 120.6 323 121 329"/>
+      <path class="link" d="M130 150C137.1 156.8 157.6 178 172.4 190.6C187.2 203.3 202.4 215.4 218.8 226C235.3 236.6 254.6 243.5 271 254.2C287.4 264.8 302.4 277.2 317.2 289.9C332.1 302.5 352.9 323.3 360 330"/>
+      <path class="link" d="M130 150C145.4 156.9 190.9 179.5 222.4 191.7C253.9 203.8 287.4 210.9 319 222.8C350.6 234.6 380.5 250.8 412.1 262.8C443.6 274.7 476.7 282.8 508.4 294.5C540 306.2 586.4 326.6 602 333"/>
+    </g>
+    <use class="mark" href="#mk" x="66" y="90" width="130" height="123"/>
+    <g class="dot-c">
+      <circle cx="432" cy="72" r="10"/><circle cx="461" cy="60" r="10"/><circle cx="494" cy="68" r="10"/><circle cx="521" cy="90" r="10"/>
+      <circle cx="447" cy="99" r="10"/><circle cx="478" cy="95" r="10"/><circle cx="414" cy="108" r="10"/><circle cx="505" cy="120" r="10"/>
+      <circle cx="536" cy="124" r="10"/><circle cx="440" cy="132" r="10"/><circle cx="471" cy="128" r="10"/><circle cx="420" cy="158" r="10"/>
+      <circle cx="490" cy="154" r="10"/><circle cx="459" cy="166" r="10"/>
+    </g>
+    <g class="dot-b">
+      <circle cx="96" cy="296" r="10"/><circle cx="126" cy="290" r="10"/><circle cx="152" cy="308" r="10"/><circle cx="82" cy="326" r="10"/>
+      <circle cx="112" cy="322" r="10"/><circle cx="142" cy="338" r="10"/><circle cx="96" cy="354" r="10"/><circle cx="126" cy="358" r="10"/>
+      <circle cx="154" cy="366" r="10"/>
+    </g>
+    <g class="dot-a">
+      <circle cx="342" cy="297" r="10"/><circle cx="377" cy="300" r="10"/><circle cx="328" cy="331" r="10"/><circle cx="360" cy="327" r="10"/>
+      <circle cx="393" cy="337" r="10"/><circle cx="348" cy="361" r="10"/><circle cx="380" cy="364" r="10"/>
+    </g>
+    <g class="thin">
+      <circle cx="580" cy="306" r="10"/><circle cx="622" cy="300" r="10"/><circle cx="600" cy="338" r="10"/><circle cx="634" cy="350" r="10"/>
+      <circle cx="570" cy="360" r="10"/>
+    </g>
+    <text class="lab" x="130" y="62" text-anchor="middle">one score</text>
+    <text class="lab" x="475" y="222" text-anchor="middle">understood</text>
+    <text class="lab" x="121" y="420" text-anchor="middle"><tspan x="121">mistaken</tspan><tspan x="121" dy="34">idea A</tspan></text>
+    <text class="lab" x="360" y="420" text-anchor="middle"><tspan x="360">mistaken</tspan><tspan x="360" dy="34">idea B</tspan></text>
+    <text class="lab" x="602" y="420" text-anchor="middle"><tspan x="602">too thin</tspan><tspan x="602" dy="34">to tell</tspan></text>
+    </svg>
+      <figcaption><h3>One score, and the class's picture behind it</h3><span class="label">An illustration, not data</span> A score merges many reasons into one mark. Saga is designed to pull apart the mistaken ideas the teacher's certified questions are built to catch.</figcaption>
+    </figure>
     <p class="statement">A sensor for the teacher, never a verdict on a student.</p>
+    <p class="stakes centre">What the student writes is never marked, and never read for attendance.</p>
   </section>
 
   <section class="part" id="student" aria-labelledby="student-h">
     <div class="split">
       <picture class="side sheet own">
-        <source type="image/webp" srcset="img/own-400.webp 400w, img/own-800.webp 800w" sizes="(min-width: 60rem) 22rem, 80vw">
-        <img src="img/own-400.jpg" srcset="img/own-400.jpg 400w, img/own-800.jpg 800w" sizes="(min-width: 60rem) 22rem, 80vw" width="800" height="800" loading="lazy" decoding="async" alt="">
+        <source type="image/webp" srcset="img/own-400.webp 400w, img/own-800.webp 800w" sizes="(min-width: 60rem) 34rem, (min-width: 40rem) 36vw, 92vw">
+        <img src="img/own-400.jpg" srcset="img/own-400.jpg 400w, img/own-800.jpg 800w" sizes="(min-width: 60rem) 34rem, (min-width: 40rem) 36vw, 92vw" width="800" height="800" loading="lazy" decoding="async" alt="">
       </picture>
       <div class="body">
         <h2 id="student-h">Their own skill map</h2>
-        <p>Each session will add to a skill map that the student keeps on their own phone: what they showed, where they showed it, and what is not yet shown, topic by topic, and how that has changed over time. It shows evidence, never a verdict. It stays with them after college, and only they will be able to delete it.</p>
-        <p>The questions adapt to each student on their own phone, within the teacher's questions. What a student writes stays there.</p>
+        <p>In a later release, each session will add to a skill map that the student keeps on their own phone: what they showed, and what is not yet shown, topic by topic. It shows evidence, never a verdict. It stays with them after college, and only they will be able to delete it.</p>
+        <p>What a student writes stays on their phone.</p>
       </div>
     </div>
   </section>
@@ -169,7 +179,7 @@
       </picture>
       <div class="body">
         <h2 id="contact-h">Pilot Saga with us</h2>
-        <p>We are preparing a first pilot. Once the model on the phone has passed its accuracy test, your teachers will see what each class understood before the next lecture. If your college would like to talk, write to us.</p>
+        <p>We are preparing a first pilot. Once the model on the phone has passed its accuracy test, your teachers will see each class's picture before the next lecture. If your college would like to talk, write to us.</p>
         <p class="contact"><a href="mailto:hello@primalumiere.com">hello@primalumiere.com</a></p>
       </div>
     </div>
@@ -185,7 +195,7 @@
       </div>
       <div class="body">
         <p>Marks reward the answer, and AI now writes the answer. As machines take on more of the work of thinking, what stays a person's own is how they reason and how that reasoning has grown. One exam shows neither; many short observations over the years can.</p>
-        <p>Saga is being built for both sides of the classroom. The teacher will see how a class reasons, so the next lecture can meet it where it stands. The student will keep a record of their own progress on their own phone. No institution sees it and no one is ranked or scored, because a record stays honest only while no one judges with it.</p>
+        <p>The student will keep a record of their own progress on their own phone. No institution sees it and no one is ranked or scored, because a record stays honest only while no one judges with it.</p>
         <p>Saga is in development, ahead of its first pilot. We believe every college and university will come to need this, and we are inviting a small circle of early backers who share that conviction to help shape it from its first classrooms. If that is you, we would welcome the conversation. Our plan and its numbers are shared privately, on request.</p>
         <p class="contact"><a href="mailto:hello@primalumiere.com">hello@primalumiere.com</a></p>
       </div>
@@ -195,7 +205,7 @@
 
 <footer class="foot">
   <p class="foot-line"><a class="logo" href="#top">Saga<svg class="star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#star" width="24" height="24"/></svg></a><span>made by <a class="maker" href="../">PRIMALUMIERE</a></span><a href="mailto:hello@primalumiere.com">hello@primalumiere.com</a></p>
-  <p class="host">No cookies or trackers are used on this site. Visitors' IP addresses are logged by its host, GitHub Pages, for security (<a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>).</p>
+  <p class="host">No cookies or trackers. The host, GitHub Pages, logs IP addresses for security (<a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">its privacy statement</a>).</p>
 </footer>
 </body>
 </html>

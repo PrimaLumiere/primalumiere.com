@@ -17,6 +17,7 @@
 }
 body { background: var(--bg) url(paper.svg); }
 p { max-width: 64ch; text-wrap: pretty; }
+h3 { margin: 0; }
 h2 { font: 400 clamp(2rem, 1.4rem + 2.4vw, 3.25rem)/1.1 var(--font-display); letter-spacing: -0.01em; max-width: 24ch; text-wrap: balance; }
 .label, .when { font: 400 0.8125rem/1.5 var(--font-text); letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
 [id] { scroll-margin-top: 1rem; }
@@ -24,6 +25,8 @@ ul, ol, dl, dd, figure { margin: 0; padding: 0; }
 ul, ol { list-style: none; }
 img { display: block; width: 100%; height: auto; }
 .lead { font: 400 clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem)/1.4 var(--font-display); }
+/* The display serif ships in one weight, so a bold in it would be the browser's smear: its emphasis is ink and size, never weight. */
+.lead strong { font-weight: 400; }
 
 /* Saga's logo: the word with its star at the upper right, the star in terracotta (WEB-Q57 (b)). */
 .logo { position: relative; display: inline-block; padding-right: 0.62em; }
@@ -61,21 +64,24 @@ img { display: block; width: 100%; height: auto; }
 @media (min-width: 40rem) { .wide { display: inline-flex !important; } }
 
 /* The cover: the words, and the lecture hall on a sheet laid over a coloured block. */
-.cover { position: relative; display: grid; gap: var(--inner); padding: 2.5rem var(--gutter) var(--section); }
+/* The space under the cover is the next part's own (--section above it); the cover adds only a little, so the two never stack. */
+.cover { position: relative; display: grid; gap: var(--inner); padding: 2.5rem var(--gutter) 1.5rem; }
 .cover-text { display: grid; justify-items: start; gap: 1.25rem; }
 .p-title { font: 400 clamp(3.75rem, 2.4rem + 5.6vw, 7rem)/1 var(--font-display); letter-spacing: -0.02em; view-transition-name: saga; }
 .p-tag { display: block; margin-top: 0.75rem; font: italic 400 clamp(1.375rem, 1.14rem + 0.95vw, 2rem)/1.2 var(--font-display); color: var(--muted); }
 .lede { font: 400 clamp(1.5rem, 1.25rem + 1vw, 2rem)/1.25 var(--font-display); max-width: 20ch; text-wrap: balance; }
+.aug { font: italic 400 clamp(1.125rem, 1rem + 0.5vw, 1.375rem)/1.35 var(--font-display); color: var(--muted); max-width: 30ch; text-wrap: balance; }
 .chip { font-size: 1rem; color: var(--muted); max-width: 30rem; text-wrap: balance; }
 .chip::before { content: ""; display: inline-block; width: 6px; height: 6px; margin-right: 0.6em; vertical-align: 0.1em; border: 1.5px solid var(--ember); border-radius: 50%; }
 .actions { margin-top: 0.5rem; }
-.frame { position: relative; isolation: isolate; margin: 0 0.75rem 0.75rem 0; }
+/* Between a phone and a wide screen the picture keeps a phone's size, so it never fills a tablet. */
+.frame { position: relative; isolation: isolate; max-width: 30rem; margin: 0 0.75rem 0.75rem 0; }
 .frame::before { content: ""; position: absolute; inset: 1.5rem -0.75rem -0.75rem 1.5rem; z-index: -1; border-radius: 1.5rem; background: var(--block); }
 .frame img { border-radius: 1.5rem; box-shadow: var(--shadow); }
 @media (min-width: 60rem) {
   .cover { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: center; column-gap: var(--col-gap); min-height: min(calc(100svh - 72px), 52rem);
-    padding: 2rem max(var(--gutter), calc(50% - 36rem + var(--gutter))) var(--section); }
-  .frame { margin: 0 1.5rem 1.5rem 0; }
+    padding: 2rem max(var(--gutter), calc(50% - 36rem + var(--gutter))) 1.5rem; }
+  .frame { max-width: none; margin: 0 1.5rem 1.5rem 0; }
   .frame::before { inset: 2.5rem -1.5rem -1.5rem 2.5rem; }
 }
 
@@ -84,45 +90,55 @@ img { display: block; width: 100%; height: auto; }
 main > .part:last-child { padding-bottom: var(--section); }
 .centre { margin-inline: auto; text-align: center; }
 .part > h2 { margin-bottom: var(--inner); }
+/* A heading with its line under it reads as one thing: the line sits close, and the part's space follows the line. */
+#class > h2, .why h2 { margin-bottom: 1.25rem; }
+#class > .lead { margin-bottom: var(--inner); text-wrap: balance; color: var(--muted); }
+/* Each act opens with a small label over its heading: the problem, why now, the solution. */
+.act { margin-bottom: 0.75rem; }
 /* The founder's pictures each sit on a sheet, as the cover's does: their cream never meets the grained paper, so no seam shows. */
 .sheet { display: block; overflow: hidden; border-radius: 1.25rem; background: var(--sheet); box-shadow: var(--shadow); }
 
-/* 1, the problem: the teachers, the loop, then the band of what the exam and AI miss. */
+/* Act 1, the problem: the teachers, the loop, then what the exam misses, a line each, on the same paper. */
 #problem .part { padding-bottom: var(--section); }
-.teachers { display: block; max-width: 40rem; margin: 0 auto var(--inner); }
+.teachers { display: block; max-width: 32rem; margin: 0 auto var(--inner); }
 .band { padding: var(--section) max(var(--gutter), calc(50% - 36rem + var(--gutter))); background: var(--band) url(paper.svg); }
-.three { display: grid; gap: 2rem; }
+.three { display: grid; gap: 2rem; margin-top: var(--inner); }
 .three li { display: grid; gap: 0.5rem; align-content: start; padding-top: 1.25rem; border-top: 1px solid var(--edge); }
 .word { font: italic 400 clamp(1.75rem, 1.4rem + 1.2vw, 2.25rem)/1.15 var(--font-display); }
 .three p:not(.word) { color: var(--muted); }
-.ai { display: grid; gap: 0.75rem; margin-top: var(--inner); padding-top: 1.5rem; border-top: 1px solid var(--edge); }
-.ai p { max-width: 70ch; }
-.ai strong { font: italic 400 1.375rem/1.3 var(--font-display); }
-.ai sup a { padding: 0 0.15em; text-decoration: none; }
+/* Act 2, why now: the one band between the problem and the solution, centred where the acts beside it run in columns. AI's answer
+   in italic, as the problem's words are; then Saga's star and the turn in roman, so the two read as question and reply. */
+.why h2 { font-style: italic; }
+.fact { max-width: 60ch; }
+.why .source { max-width: none; margin-top: 0.75rem; }
+.turn-star { display: block; width: 2.5rem; height: 2.5rem; margin: var(--inner) auto 1rem; fill: var(--act); overflow: visible; }
+.turn { margin-bottom: 0.75rem; max-width: 24ch; font: 400 clamp(2rem, 1.4rem + 2.4vw, 3.25rem)/1.1 var(--font-display); letter-spacing: -0.01em; text-wrap: balance; }
+.why .lead { max-width: 36ch; text-wrap: balance; }
+.stays { display: grid; gap: 1.25rem; margin-top: var(--inner); }
+.stays li { padding-top: 1.25rem; border-top: 1px solid var(--edge); }
+.stays strong { font: italic 400 1.3125rem/1.2 var(--font-display); }
+@media (min-width: 48rem) { .stays { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; } }
+.fact sup a { padding: 0 0.15em; text-decoration: none; }
 .source { font-size: 0.875rem; color: var(--muted); }
-@media (min-width: 48rem) { .three { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 3rem; } }
+@media (min-width: 40rem) { .three { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 3rem; } }
 /* Five points in one row on a wide screen (72 rem and up), their labels a little smaller so each stays on one line; two to a row below it. */
 @media (min-width: 72rem) { .three { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 2rem; } .three .word { font-size: 1.5rem; } }
 
-/* 2, the turn: the picture beside the second measurement. */
-.grid { display: grid; gap: 1.25rem; }
+/* The class's picture, drawn: what card 4's teacher will see, on one sheet under the cards, its words beside it on a wide screen. */
 .tile { display: grid; gap: 0.75rem; align-content: start; padding: 1.5rem; border-radius: 1.25rem; background: var(--sheet); box-shadow: var(--shadow); }
-.picture { gap: 1.25rem; }
+.picture { gap: 1.25rem; max-width: 56rem; margin: calc(var(--section) * 0.6) auto 0; }
 .picture .link { stroke: var(--edge); stroke-width: 2.2; }
 .picture .lab { fill: var(--text); stroke: none; font: 400 30px var(--font-text); }
 .picture .mark { stroke-width: 3.8; }
 .picture figcaption { max-width: 60ch; color: var(--muted); }
 .picture figcaption .label { display: block; margin-bottom: 0.25rem; }
-.second { align-content: center; gap: 1.25rem; }
-.second dl { display: grid; gap: 1rem; }
-.second dl div { display: grid; gap: 0.25rem; padding-top: 1rem; border-top: 1px solid var(--line); }
-.second dt { font: italic 400 1.25rem/1.3 var(--font-display); }
-.second dd { color: var(--muted); }
-@media (min-width: 60rem) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--col-gap); } .picture, .second { padding: 2rem; } }
+.picture h3 { margin-bottom: 0.5rem; font: 400 clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem)/1.3 var(--font-display); color: var(--text); }
+@media (min-width: 44rem) { .picture { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: center; column-gap: 2rem; padding: 2rem; } }
 
-/* 3, the solution: three numbered sheets, each a picture above its words. */
-#class > .lead { max-width: 46ch; margin-bottom: var(--inner); text-wrap: balance; }
+/* Act 3, the solution: four numbered sheets, each a picture above its words. */
+#class > .lead { max-width: 46ch; }
 #class strong { font-weight: 600; }
+#class > .lead strong { font-weight: 400; color: var(--text); }
 .steps { display: grid; gap: 1.25rem; counter-reset: step; }
 .steps li { counter-increment: step; display: grid; gap: 0.5rem; align-content: start; padding: 0.75rem 0.75rem 1.5rem; border-radius: 1.25rem; background: var(--sheet); box-shadow: var(--shadow); }
 .steps li > p { padding-inline: 0.75rem; }
@@ -134,7 +150,27 @@ main > .part:last-child { padding-bottom: var(--section); }
 .statement { position: relative; max-width: 26ch; margin: var(--inner) auto 0; padding-bottom: 1.25rem; text-align: center;
   font: italic 400 clamp(1.875rem, 1.46rem + 1.71vw, 3rem)/1.15 var(--font-display); letter-spacing: -0.01em; text-wrap: balance; }
 .statement::after { content: ""; position: absolute; left: 19%; bottom: 0; width: 62%; height: 0.6rem; border-bottom: 2px solid var(--ember); border-radius: 0 0 70% 30% / 0 0 100% 100%; }
-@media (min-width: 60rem) { .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.stakes { margin-top: 1.25rem; color: var(--muted); }
+/* The loop (WEB-Q63 (e)): on a phone, a line down the cards' left edge, from the last back to the first; on a wide screen, the
+   four cards clockwise round one terracotta loop with the star at its centre, so card 4 leads back to card 1. The reading order stays 1 to 4. */
+.steps { position: relative; isolation: isolate; }
+.steps::before { content: ""; position: absolute; z-index: -1; inset: 2rem auto 2rem -0.75rem; width: 2rem; border: 2px solid var(--ember); border-right: 0; border-radius: 1.5rem 0 0 1.5rem; }
+/* Between a phone and a wide screen, each card lies on its side: a small picture with its words beside it, so no picture fills the screen. */
+@media (min-width: 40rem) and (max-width: 59.99rem) {
+  .steps li { grid-template-columns: 13rem minmax(0, 1fr); grid-template-rows: auto 1fr; column-gap: 0.5rem; padding: 0.75rem; }
+  .steps .fig { grid-row: 1 / span 2; margin-bottom: 0; }
+  .steps .when { padding-top: 0.5rem; }
+}
+@media (min-width: 60rem) {
+  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6rem; max-width: 56rem; margin-inline: auto; }
+  .steps li:nth-child(3) { grid-area: 2 / 2; }
+  .steps li:nth-child(4) { grid-area: 2 / 1; }
+  .steps::before { display: none; }
+  /* Each row is as tall as its own words need, so the loop hangs from card 2's lower left corner, which is where the four cards
+     meet. Its ring (radius about 3.7rem) stays clear of the cards' corners, 4.2rem from the centre across the 6rem gap. */
+  .steps li:nth-child(2) { position: relative; }
+  .steps li:nth-child(2)::after { content: ""; position: absolute; left: -3rem; top: calc(100% + 3rem); width: 9rem; height: 9rem; translate: -50% -50%; background: url(loop.svg) center / contain no-repeat; pointer-events: none; }
+}
 
 /* 4 and 5, the student and the pilot: a picture beside the words. */
 .split { display: grid; gap: var(--inner); align-items: center; }
@@ -142,11 +178,14 @@ main > .part:last-child { padding-bottom: var(--section); }
 .side { display: block; width: 100%; }
 .contact { font: 400 clamp(1.375rem, 1rem + 1.6vw, 2rem)/1.3 var(--font-display); }
 .contact a { display: inline-flex; align-items: center; min-height: 48px; overflow-wrap: anywhere; }
+@media (min-width: 40rem) { .split { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); column-gap: 2rem; } }
 @media (min-width: 60rem) { .split { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--col-gap); } }
 
 /* For investors: the last part, on the deeper paper, set apart from what is written for colleges. */
 .investors { margin-top: var(--section); }
 .conviction { display: grid; gap: 1rem; align-self: start; }
+/* Beside the longer column, the conviction stays in view while its argument is read. */
+@media (min-width: 60rem) { .conviction { position: sticky; top: 2rem; } }
 .conviction h2 { font: italic 400 clamp(1.75rem, 1.3rem + 1.6vw, 2.5rem)/1.2 var(--font-display); max-width: 20ch; }
 
 /* The foot: one line, and the host's note last, small and quiet. */
@@ -157,8 +196,9 @@ main > .part:last-child { padding-bottom: var(--section); }
 .foot-line > a:not(.logo) { display: inline-flex; align-items: center; min-height: 48px; overflow-wrap: anywhere; }
 /* The maker's name in capitals, spaced as the company page draws it. */
 .maker { letter-spacing: 0.16em; font-size: 0.875em; }
-.host { margin-top: 0.75rem; max-width: none; font-size: 0.8125rem; color: var(--muted); }
-.host a { text-decoration-color: currentColor; text-decoration-thickness: 1px; }
+/* The host's note kept small and quiet (the founder, 12 Nov: "minimize it, dont make it a highlight"); #6b6258 is 5.3:1 on --bg. */
+.host { margin-top: 0.5rem; max-width: none; font-size: 0.75rem; color: #6b6258; }
+.host a { color: inherit; text-decoration-color: var(--edge); text-decoration-thickness: 1px; }
 
 @media (forced-colors: active) {
   .draw, .ink-a, .ink-b, .ink-c, .thin, .dot-a, .dot-b, .dot-c, .picture .link { stroke: CanvasText; }
@@ -166,6 +206,7 @@ main > .part:last-child { padding-bottom: var(--section); }
   .picture .lab, .logo .star { fill: CanvasText; }
   .button { border: 2px solid ButtonText; }
   .tile, .steps li, .frame img, .sheet { border: 1px solid CanvasText; }
+  .turn-star { fill: CanvasText; }
   .live, .frame::before { display: none; }
 }
 @media print { *, *::before, *::after { animation: none !important; } .live { display: none; } }

@@ -2,7 +2,7 @@
 
 > PrimaLumiere is building Saga: Of People, Through People, a teacher-led classroom tool for colleges and universities in India. Saga is in development and preparing a first pilot.
 
-Saga is designed to let a teacher see what a class understood before the next lecture. Students reason on their phones for as long as the teacher sets. Once it passes an accuracy test, a small AI model on each phone reads the reasoning within the teacher's certified questions, and the teacher sees the class's picture. No student is ranked or scored, and what a student writes stays on their phone.
+Saga is designed to let a teacher see what a class understood before the next lecture. For the minutes the teacher sets, each student works through the teacher's questions in a short written dialogue on a phone, showing their working. Once it passes an accuracy test, a small AI model on each phone reads the working within the teacher's certified questions, and the teacher sees the class's picture. No student is ranked or scored, and what a student writes stays on their phone. Saga is designed to enhance critical reasoning rather than stand in for it: AI that helps people think deeper, with more variables in mind, where hints come before answers and the decisions stay with the teacher and the student.
 
 ## Contact
 
