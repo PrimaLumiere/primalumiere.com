@@ -100,7 +100,9 @@ main > .part:last-child { padding-bottom: var(--section); }
 .ai strong { font: italic 400 1.375rem/1.3 var(--font-display); }
 .ai sup a { padding: 0 0.15em; text-decoration: none; }
 .source { font-size: 0.875rem; color: var(--muted); }
-@media (min-width: 48rem) { .three { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3rem; } }
+@media (min-width: 48rem) { .three { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 3rem; } }
+/* Five points in one row on a wide screen (72 rem and up), their labels a little smaller so each stays on one line; two to a row below it. */
+@media (min-width: 72rem) { .three { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 2rem; } .three .word { font-size: 1.5rem; } }
 
 /* 2, the turn: the picture beside the second measurement. */
 .grid { display: grid; gap: 1.25rem; }
@@ -175,6 +177,10 @@ main > .part:last-child { padding-bottom: var(--section); }
   .live span { animation: drift 5s ease-in-out both; }
   /* The arrival, once: the lecture hall rises; the words are there from the first frame. */
   .frame { animation: rise 0.7s 0.2s var(--arrive) both; }
+  /* Arriving from any page, in any browser (the founder, 12 Nov: "transition animation between pages that is agnostic"): the page
+     fades up over its paper, which is there from the first frame. Where the browser also runs the cross-page transition (site.css),
+     this plays inside it and only softens it. Not filled, so nothing is left on the body once it ends. */
+  body { animation: appear 0.6s var(--settle); }
 }
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
