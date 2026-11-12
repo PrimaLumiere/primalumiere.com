@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<!-- No script and no other origin is allowed. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noai, noimageai">
+<meta name="description" content="Saga: Of People, Through People, a teacher-led classroom tool for engineering colleges in India, in development: student reasoning in the lecture, for as long as the teacher sets, read on the phone, so the teacher can see the class's picture before the next lecture, with no student ranked or scored.">
+<title>Saga: Of People, Through People</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="saga.css">
+</head>
+<body>
+<svg class="defs" width="0" height="0" aria-hidden="true" focusable="false"><defs>
+<!-- The three inks merging: the "one score" of the picture in "One score, and the class's picture behind it". -->
+<symbol id="mk" viewBox="805 170 192 182"><path class="ink-a" d="M937.4 229.2C939 240.9 935.1 255.3 928.9 266.3C922.8 277.3 911.7 290.3 900.5 295.1C889.3 299.9 873.6 297.9 861.6 295.4C849.5 292.8 836.7 288.1 828.1 279.7C819.5 271.2 811 257 809.8 244.8C808.7 232.5 814.9 217.1 821.2 206.2C827.5 195.3 837.3 184.1 847.8 179.2C858.3 174.4 872.3 174.3 884.2 177.1C896.2 179.9 910.6 187.4 919.5 196.1C928.4 204.8 935.9 217.5 937.4 229.2Z"/><path class="ink-b" d="M967.9 288C957.8 295.2 944 300.3 931.6 300.2C919.1 300.1 903.7 294.8 893.4 287.4C883.1 280.1 872.9 267.4 869.6 255.9C866.3 244.3 869.3 230 873.5 218.3C877.7 206.7 885.4 193.3 894.9 186C904.4 178.8 918.2 174.8 930.4 174.9C942.7 174.9 958.5 179.1 968.2 186.2C977.9 193.3 984.7 205.9 988.7 217.6C992.7 229.3 995.6 244.7 992.2 256.4C988.7 268.1 978 280.7 967.9 288Z"/><path class="ink-c" d="M918.7 347.7C907 350.6 891 348.1 879.8 343.3C868.6 338.5 858.2 329.2 851.6 319C845 308.7 839.3 294.3 840.1 281.8C840.8 269.3 848.4 253.6 856 244.2C863.7 234.9 874.4 228.6 885.9 225.7C897.3 222.8 913.5 222.6 924.8 226.7C936.2 230.9 947.8 240.3 953.9 250.5C960 260.8 961.9 275.6 961.2 288.2C960.5 300.7 956.9 315.8 949.8 325.7C942.7 335.7 930.4 344.7 918.7 347.7Z"/></symbol>
+<!-- Saga's star (the founder's reference, 12 Nov): thin rays from a bright point, the vertical longest. -->
+<symbol id="star" viewBox="-12 -12 24 24"><path d="M0 -12L1.25 0L0 12L-1.25 0ZM10.5 0L0 1.15L-10.5 0L0 -1.15ZM5.66 -5.66L0.6 0.6L-5.66 5.66L-0.6 -0.6ZM5.66 5.66L-0.6 0.6L-5.66 -5.66L0.6 -0.6ZM2.14 -5.17L0.46 0.19L-2.14 5.17L-0.46 -0.19ZM5.17 -2.14L0.19 0.46L-5.17 2.14L-0.19 -0.46ZM5.17 2.14L-0.19 0.46L-5.17 -2.14L0.19 -0.46ZM2.14 5.17L-0.46 0.19L-2.14 -5.17L0.46 -0.19Z"/><circle r="2.1"/></symbol>
+</defs></svg>
+<div class="live" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+<a class="skip" href="#main">Skip to content</a>
+<header class="bar">
+  <a class="house logo" href="#top">Saga<svg class="star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#star" width="24" height="24"/></svg></a>
+  <nav aria-label="On this page">
+    <a class="wide" href="#class">How a class will run</a>
+    <a class="button small" href="#contact">Talk to us</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="cover" id="top" aria-labelledby="promise">
+    <div class="cover-text">
+      <h1 class="promise" id="promise"><span class="p-title logo">Saga<svg class="star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#star" width="24" height="24"/></svg><span class="sr">:</span></span> <span class="p-tag">Of People, Through People</span></h1>
+      <p class="lede">Know what your class understood before the next lecture.</p>
+      <p class="chip">A teacher-led classroom tool for engineering colleges in India · in development · preparing a first pilot</p>
+      <p class="actions"><a class="button" href="#contact">Talk to us about a pilot</a></p>
+    </div>
+    <figure class="frame">
+      <picture>
+        <source type="image/webp" srcset="img/class-560.webp 560w, img/class-1024.webp 1024w" sizes="(min-width: 60rem) 36rem, 90vw">
+        <img src="img/class-560.jpg" srcset="img/class-560.jpg 560w, img/class-1024.jpg 1024w" sizes="(min-width: 60rem) 36rem, 90vw" width="1024" height="1024" fetchpriority="high" alt="A teacher at a whiteboard in a lecture hall; the students on the benches, each writing on a phone.">
+      </picture>
+    </figure>
+    <label class="pause"><input type="checkbox" id="still"><span class="sr">Pause the moving background</span></label>
+  </section>
+
+  <section id="problem" aria-labelledby="problem-h">
+    <div class="part">
+      <h2 id="problem-h" class="centre">The exam tells a teacher too late, and too little.</h2>
+      <picture class="sheet teachers">
+        <source type="image/webp" srcset="img/teachers-640.webp 640w, img/teachers-1024.webp 1024w" sizes="(min-width: 48rem) 40rem, 92vw">
+        <img src="img/teachers-640.jpg" srcset="img/teachers-640.jpg 640w, img/teachers-1024.jpg 1024w" sizes="(min-width: 48rem) 40rem, 92vw" width="1024" height="756" loading="lazy" decoding="async" alt="Three college teachers.">
+      </picture>
+      <p class="lead centre">Teaching is a feedback loop, and a loop is only as good as its measurement. In a typical engineering classroom in India, the main measurement is the exam.</p>
+    </div>
+    <div class="band">
+      <ul class="three">
+        <li><p class="word">Too late</p><p>Results arrive weeks after the lecture, when the class has moved on to the topics that depend on it.</p></li>
+        <li><p class="word">Too little</p><p>A score: how many got it right.</p></li>
+        <li><p class="word">Under pressure</p><p>A graded test measures performance under pressure.</p></li>
+      </ul>
+      <div class="ai">
+        <p><strong>And AI now writes the perfect answer.</strong> A finished assignment no longer shows that a student can reason, and leaning on AI can leave students less able to solve problems on their own. In a field experiment with about 1,000 high-school students, those who practised with an unguarded AI did better in practice, but scored 17% lower on a later exam without it than students who never had it.<sup><a href="#source-1" id="ref-1" aria-label="Source 1">1</a></sup></p>
+        <p class="source" id="source-1"><span aria-hidden="true">1 </span>Bastani et al., <a href="https://doi.org/10.1073/pnas.2422633122">“Generative AI without guardrails can harm learning”</a>, <i>PNAS</i>, 2025.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="part" id="idea" aria-labelledby="idea-h">
+    <h2 id="idea-h" class="centre">One score, and the class's picture behind it</h2>
+    <div class="grid">
+      <figure class="tile picture">
+        <svg class="draw" viewBox="0 0 720 480" role="img" focusable="false" aria-labelledby="pic-t pic-d">
+      <title id="pic-t">One score, and the class's picture behind it</title>
+      <desc id="pic-d">An illustration, not data. At the top left, three inks merge into one mark, labelled one score. Lines lead from it to four groups of dots: a large group labelled understood, two groups labelled mistaken idea A and mistaken idea B, and a few hollow dots labelled too thin to tell.</desc>
+      <g>
+        <path class="link" d="M130 150C141.4 147.8 175.4 139.4 198.4 137.1C221.4 134.7 245 137.3 268.1 135.8C291.2 134.3 314 130.4 337 128C360 125.5 383.1 123.7 406.1 121.2C429.1 118.7 463.5 114.4 475 113"/>
+        <path class="link" d="M130 150C130.4 156 132.4 174 132.4 186C132.5 198 130.9 209.9 130.2 221.8C129.5 233.7 130.1 245.7 128.1 257.6C126.2 269.4 119.9 281.1 118.7 293C117.5 304.9 120.6 323 121 329"/>
+        <path class="link" d="M130 150C137.1 156.8 157.6 178 172.4 190.6C187.2 203.3 202.4 215.4 218.8 226C235.3 236.6 254.6 243.5 271 254.2C287.4 264.8 302.4 277.2 317.2 289.9C332.1 302.5 352.9 323.3 360 330"/>
+        <path class="link" d="M130 150C145.4 156.9 190.9 179.5 222.4 191.7C253.9 203.8 287.4 210.9 319 222.8C350.6 234.6 380.5 250.8 412.1 262.8C443.6 274.7 476.7 282.8 508.4 294.5C540 306.2 586.4 326.6 602 333"/>
+      </g>
+      <use class="mark" href="#mk" x="66" y="90" width="130" height="123"/>
+      <g class="dot-c">
+        <circle cx="432" cy="72" r="10"/><circle cx="461" cy="60" r="10"/><circle cx="494" cy="68" r="10"/><circle cx="521" cy="90" r="10"/>
+        <circle cx="447" cy="99" r="10"/><circle cx="478" cy="95" r="10"/><circle cx="414" cy="108" r="10"/><circle cx="505" cy="120" r="10"/>
+        <circle cx="536" cy="124" r="10"/><circle cx="440" cy="132" r="10"/><circle cx="471" cy="128" r="10"/><circle cx="420" cy="158" r="10"/>
+        <circle cx="490" cy="154" r="10"/><circle cx="459" cy="166" r="10"/>
+      </g>
+      <g class="dot-b">
+        <circle cx="96" cy="296" r="10"/><circle cx="126" cy="290" r="10"/><circle cx="152" cy="308" r="10"/><circle cx="82" cy="326" r="10"/>
+        <circle cx="112" cy="322" r="10"/><circle cx="142" cy="338" r="10"/><circle cx="96" cy="354" r="10"/><circle cx="126" cy="358" r="10"/>
+        <circle cx="154" cy="366" r="10"/>
+      </g>
+      <g class="dot-a">
+        <circle cx="342" cy="297" r="10"/><circle cx="377" cy="300" r="10"/><circle cx="328" cy="331" r="10"/><circle cx="360" cy="327" r="10"/>
+        <circle cx="393" cy="337" r="10"/><circle cx="348" cy="361" r="10"/><circle cx="380" cy="364" r="10"/>
+      </g>
+      <g class="thin">
+        <circle cx="580" cy="306" r="10"/><circle cx="622" cy="300" r="10"/><circle cx="600" cy="338" r="10"/><circle cx="634" cy="350" r="10"/>
+        <circle cx="570" cy="360" r="10"/>
+      </g>
+      <text class="lab" x="130" y="62" text-anchor="middle">one score</text>
+      <text class="lab" x="475" y="222" text-anchor="middle">understood</text>
+      <text class="lab" x="121" y="420" text-anchor="middle"><tspan x="121">mistaken</tspan><tspan x="121" dy="34">idea A</tspan></text>
+      <text class="lab" x="360" y="420" text-anchor="middle"><tspan x="360">mistaken</tspan><tspan x="360" dy="34">idea B</tspan></text>
+      <text class="lab" x="602" y="420" text-anchor="middle"><tspan x="602">too thin</tspan><tspan x="602" dy="34">to tell</tspan></text>
+    </svg>
+        <figcaption><span class="label">An illustration, not data</span> A score merges many reasons into one mark. Saga is designed to pull apart the mistaken ideas the teacher's certified questions are built to catch, and to say when the evidence is too thin.</figcaption>
+      </figure>
+      <div class="tile second">
+        <p class="lead">Saga is designed as a second measurement, with the opposite properties:</p>
+        <dl>
+          <div><dt>When</dt><dd>Evidence before the next lecture.</dd></div>
+          <div><dt>What</dt><dd>The reasoning: which mistaken ideas the class holds.</dd></div>
+          <div><dt>Stakes</dt><dd>What the student writes is never marked, and never read for attendance.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="part" id="class" aria-labelledby="class-h">
+    <h2 id="class-h" class="centre">How a class will run</h2>
+    <p class="lead centre"><strong>Before the lecture, the teacher certifies the questions.</strong> AI may draft them; the questions the teacher certifies bound everything students see.</p>
+    <ol class="steps">
+      <li><picture class="fig">
+          <source type="image/webp" srcset="img/reason-400.webp 400w, img/reason-800.webp 800w" sizes="(min-width: 60rem) 21rem, 92vw">
+          <img src="img/reason-400.jpg" srcset="img/reason-400.jpg 400w, img/reason-800.jpg 800w" sizes="(min-width: 60rem) 21rem, 92vw" width="800" height="800" loading="lazy" decoding="async" alt="">
+        </picture>
+        <p class="when">In the lecture</p><p><strong>Students reason for as long as the teacher sets,</strong> each on a phone. A dropped connection won't lose their work.</p></li>
+      <li><picture class="fig">
+          <source type="image/webp" srcset="img/phone-400.webp 400w, img/phone-800.webp 800w" sizes="(min-width: 60rem) 21rem, 92vw">
+          <img src="img/phone-400.jpg" srcset="img/phone-400.jpg 400w, img/phone-800.jpg 800w" sizes="(min-width: 60rem) 21rem, 92vw" width="800" height="800" loading="lazy" decoding="async" alt="">
+        </picture>
+        <p class="when">On the phone</p><p><strong>A small AI model will read the reasoning,</strong> only inside the teacher's questions, and only once it has passed an accuracy test. Until it passes, no class picture is made.</p></li>
+      <li><picture class="fig">
+          <source type="image/webp" srcset="img/desk-400.webp 400w, img/desk-800.webp 800w" sizes="(min-width: 60rem) 21rem, 92vw">
+          <img src="img/desk-400.jpg" srcset="img/desk-400.jpg 400w, img/desk-800.jpg 800w" sizes="(min-width: 60rem) 21rem, 92vw" width="800" height="800" loading="lazy" decoding="async" alt="">
+        </picture>
+        <p class="when">Before the next lecture</p><p><strong>The teacher will see the class's picture:</strong> what it understood, and which mistaken ideas held it back. Where the evidence is too thin, Saga will say so. The teacher decides what to change.</p></li>
+    </ol>
+    <p class="statement">A sensor for the teacher, never a verdict on a student.</p>
+  </section>
+
+  <section class="part" id="student" aria-labelledby="student-h">
+    <div class="split">
+      <picture class="side sheet own">
+        <source type="image/webp" srcset="img/own-400.webp 400w, img/own-800.webp 800w" sizes="(min-width: 60rem) 22rem, 80vw">
+        <img src="img/own-400.jpg" srcset="img/own-400.jpg 400w, img/own-800.jpg 800w" sizes="(min-width: 60rem) 22rem, 80vw" width="800" height="800" loading="lazy" decoding="async" alt="">
+      </picture>
+      <div class="body">
+        <h2 id="student-h">Their own skill map</h2>
+        <p>Each session will add to a skill map that the student keeps on their own phone: what they showed, where they showed it, and what is not yet shown, topic by topic, and how that has changed over time. It shows evidence, never a verdict. It stays with them after college, and only they will be able to delete it.</p>
+        <p>The questions adapt to each student on their own phone, within the teacher's questions. What a student writes stays there.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="part" id="contact" aria-labelledby="contact-h">
+    <div class="split pilot">
+      <picture class="side sheet group">
+        <source type="image/webp" srcset="img/group-800.webp 800w, img/group-1672.webp 1672w" sizes="(min-width: 60rem) 34rem, 92vw">
+        <img src="img/group-800.jpg" srcset="img/group-800.jpg 800w, img/group-1672.jpg 1672w" sizes="(min-width: 60rem) 34rem, 92vw" width="1672" height="941" loading="lazy" decoding="async" alt="Teachers and students together, talking, some with their phones.">
+      </picture>
+      <div class="body">
+        <h2 id="contact-h">Pilot Saga with us</h2>
+        <p>We are preparing a first pilot. Once the model on the phone has passed its accuracy test, your teachers will see what each class understood before the next lecture. If your college would like to talk, write to us.</p>
+        <p class="contact"><a href="mailto:hello@primalumiere.com">hello@primalumiere.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The founder's ask (12 Nov), kept to an invitation: no amount, instrument or terms on a public page, which go privately to
+       those who write (s. 42 restricts publicising a private placement, the agents' reading, for counsel to confirm; WEB-Q59). -->
+  <section class="band investors" id="investors" aria-labelledby="investors-h">
+    <div class="split">
+      <div class="conviction">
+        <p class="label">For investors</p>
+        <h2 id="investors-h">When any answer can be written for you, the way you reason is what remains your own.</h2>
+      </div>
+      <div class="body">
+        <p>Saga is built on that conviction: a teacher should be able to see how a class reasons, not only what it hands in, and should decide what to do with it, with no student ranked or scored.</p>
+        <p>We are looking for a few early backers who share it, and who are content to begin before there is a product to show. If that is you, write to us. We will share our plan and its numbers privately.</p>
+        <p class="contact"><a href="mailto:hello@primalumiere.com">hello@primalumiere.com</a></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p class="foot-line"><a class="logo" href="#top">Saga<svg class="star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#star" width="24" height="24"/></svg></a><span>made by <a class="maker" href="../">PRIMALUMIERE</a></span><a href="mailto:hello@primalumiere.com">hello@primalumiere.com</a></p>
+  <p class="host">No cookies or trackers are used on this site. Visitors' IP addresses are logged by its host, GitHub Pages, for security (<a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>).</p>
+</footer>
+</body>
+</html>

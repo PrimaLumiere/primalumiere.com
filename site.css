@@ -1,0 +1,132 @@
+/* PrimaLumiere's site, the parts every page shares: the type, the tokens, the dawn and the daybreak, the missing page,
+   and the move from the company's page to Saga's. Each page adds its own file: home.css (the company's page) and
+   saga/saga.css (Saga's page); a rule for one page goes in that page's file, so it can never reach another page.
+   No script; small images only: the film grain, and the planet's surface and its light (WebP, with JPEG fallbacks).
+   Each rule is the finished page; starting states live only in the pages' motion blocks, so a phone that reduces
+   motion or lacks scroll timelines shows the same page, still. */
+
+/* The display serif, Newsreader (SIL Open Font License, fonts/OFL.txt): weight 400, Latin, roman and italic. */
+@font-face { font-family: Newsreader; src: url(fonts/newsreader.woff2) format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: Newsreader; src: url(fonts/newsreader-italic.woff2) format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+/* Until it arrives, Georgia resized to Newsreader's width and line box, so the swap moves nothing.
+   shortcut: measured against Georgia only; a phone without Georgia falls through to its own serif and may shift a little. */
+@font-face { font-family: "Newsreader fallback"; src: local(Georgia); font-style: normal; size-adjust: 97.4%; ascent-override: 75.5%; descent-override: 27.2%; line-gap-override: 0%; }
+@font-face { font-family: "Newsreader fallback"; src: local("Georgia Italic"), local(Georgia-Italic); font-style: italic; size-adjust: 87.3%; ascent-override: 84.2%; descent-override: 30.4%; line-gap-override: 0%; }
+
+:root {
+  --night: #050505; --light: #f4efe7; --muted: #a9a196; --ember: #e8a56c; --hairline: #24211e;
+  --font-display: Newsreader, "Newsreader fallback", "Iowan Old Style", "Palatino Linotype", Palatino, "Noto Serif", Georgia, serif;
+  --font-text: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+  --gutter: max(1.25rem, 4vw);
+  --arrive: cubic-bezier(0.16, 1, 0.3, 1); --settle: cubic-bezier(0.4, 0, 0.2, 1);
+  /* The dawn's shape. A page or a section moves and sizes its horizon by setting these. */
+  --horizon: 55%; --sun-x: 50%; --planet: 260vw; --halo: min(92vw, 80rem); --glow: 56rem;
+  color-scheme: dark;
+}
+@media (min-width: 48rem) { :root { --planet: 360vw; } }
+@media (prefers-contrast: more) { :root { --muted: var(--light); } }
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body { margin: 0; background: var(--night); color: var(--light); font: 1.0625rem/1.6 var(--font-text); }
+a { color: inherit; text-underline-offset: 0.25em; text-decoration-color: var(--ember); }
+:focus-visible { outline: 2px solid var(--light); outline-offset: 4px; }
+h1, h2, p { margin: 0; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.skip { position: absolute; left: -999px; top: 0; z-index: 20; }
+.skip:focus { left: 1rem; top: 1rem; background: var(--night); padding: 0.75rem 1rem; }
+
+/* The dawn: a planet far wider than the screen, so its top reads as a horizon, lit from behind; a vignette fades the sides. */
+.dawn { position: relative; isolation: isolate; overflow: clip; }
+.sky { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.sky::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 72% 78% at var(--sun-x) var(--horizon), transparent 35%, var(--night) 100%); }
+.halo { position: absolute; left: var(--sun-x); top: var(--horizon); width: var(--halo); aspect-ratio: 5 / 2; transform: translate(-50%, -50%); background: radial-gradient(closest-side, rgb(255 214 170 / 0.4), rgb(224 138 82 / 0.15) 45%, transparent); }
+/* The night side: black and opaque, so whatever sits behind it is below the horizon. */
+.planet { --air: 0.875rem; position: absolute; left: var(--sun-x); top: var(--horizon); width: var(--planet); aspect-ratio: 1; transform: translateX(-50%); border-radius: 50%; background: #000; }
+/* Rim and air where the planet is this box (the company's is the SVG .limb): rings faded by a mask on the sun, each edge ramped over pixels so it never steps. */
+.planet::before, .planet::after { content: ""; position: absolute; inset: calc(-1 * var(--air)); border-radius: 50%; }
+.planet::before {
+  background: radial-gradient(closest-side, transparent calc(100% - var(--air) - 3px), rgb(255 232 204 / 0.9) calc(100% - var(--air) - 0.5px), rgb(255 200 150 / 0.3) calc(100% - var(--air) + 2px), transparent calc(100% - var(--air) * 0.4));
+  mask: radial-gradient(var(--halo) at 50% var(--air), #000, rgb(0 0 0 / 0.4) 30%, rgb(0 0 0 / 0.1) 65%, transparent);
+}
+.planet::after {
+  background: radial-gradient(closest-side, transparent calc(100% - var(--air) - 2.5px), #fffaf0 calc(100% - var(--air) - 0.5px), rgb(255 214 150 / 0.6) calc(100% - var(--air) * 0.8), rgb(238 128 58 / 0.32) calc(100% - var(--air) * 0.55), rgb(110 180 204 / 0.2) calc(100% - var(--air) * 0.25), transparent),
+    radial-gradient(100% 1.25rem at 50% var(--air), rgb(232 140 80 / 0.12), transparent);
+  mask: radial-gradient(calc(var(--halo) / 3) at 50% var(--air), #000, transparent);
+}
+/* The sun as a lens sees it: a white-hot core on the rim inside a round glare that ignores the planet's edge, since it forms in the lens. */
+.sun {
+  position: absolute; left: var(--sun-x); top: var(--horizon); width: var(--glow); aspect-ratio: 1; transform: translate(-50%, -50%);
+  background: radial-gradient(calc(var(--glow) * 0.22) calc(var(--glow) * 0.055), #fff 10%, rgb(255 250 240 / 0.95) 30%, rgb(255 236 210 / 0.7) 40%, rgb(255 210 160 / 0.35) 65%, rgb(255 190 130 / 0.12) 85%, transparent),
+    radial-gradient(circle closest-side, rgb(255 230 200 / 0.3), rgb(255 206 160 / 0.14) 10%, rgb(255 180 120 / 0.06) 26%, rgb(255 160 100 / 0.02) 52%, transparent);
+}
+/* ---- The daybreak: the dawn in full, as the company's first screen and Saga's cover draw it ---- */
+
+/* Space here is pure black, for the grain to blend with. --hi and --ho: the air's scale inside and outside the limb. */
+.daybreak { --night: #000; --hi: clamp(9px, 1.45vw, 22px); --ho: clamp(14px, 2.7vw, 40px); background: var(--night); }
+/* Film grain, soft-light: black stays black and white white, the dark gradients lose their bands, and the glow is not dusted. */
+.daybreak::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: url(grain.png); opacity: 0.04; mix-blend-mode: soft-light; }
+/* The vignette, gentler here: it darkens the corners but spares the rim, which runs bright to the screen's edges. */
+.daybreak .sky::after { background: radial-gradient(ellipse 80% 100% at var(--sun-x) var(--horizon), transparent 50%, var(--night)); }
+/* Day: a broad warm halo across the middle of the sky, behind the planet. */
+.daybreak .sky::before { content: ""; position: absolute; inset: 0; opacity: 0.8;
+  background: radial-gradient(max(50vw, 16rem) 30svh at var(--sun-x) var(--horizon), rgb(255 150 86 / 0.15), rgb(200 96 52 / 0.05) 45%, transparent); }
+/* The sun's glow in the air, behind the planet: a flat bright band along the horizon and a softer plume rising behind the name. */
+.daybreak .halo { inset: 0; width: auto; aspect-ratio: auto; transform: none;
+  background: radial-gradient(max(22vw, 9rem) 8svh at var(--sun-x) var(--horizon), rgb(255 226 190 / 0.3), rgb(255 180 120 / 0.22) 22%, rgb(240 140 80 / 0.14) 45%, rgb(200 100 60 / 0.07) 70%, rgb(170 84 50 / 0.03) 88%, transparent),
+    radial-gradient(clamp(9rem, 15vw, 24rem) 22svh at var(--sun-x) var(--horizon), rgb(255 214 170 / 0.22), rgb(250 170 110 / 0.19) 15%, rgb(240 150 90 / 0.14) 30%, rgb(230 128 76 / 0.09) 52%, rgb(180 90 56 / 0.04) 76%, transparent); }
+/* The daybreak's planet: an SVG of the same circle as .planet, sized and placed the same way. */
+.limb { position: absolute; left: var(--sun-x); top: var(--horizon); width: var(--planet); height: auto; transform: translateX(-50%); overflow: visible; }
+/* The earth, kept inside the planet: its surface can turn (the company's page turns it) while its light stays under the sun.
+   The black ground is what the light multiplies where there is no surface, so the light never shows on its own. */
+.earth { position: absolute; inset: 0; background: #000; clip-path: circle(calc(var(--planet) / 2 - 1px) at var(--sun-x) calc(var(--horizon) + var(--planet) / 2)); }
+/* The light on the surface, still: warm under the sun, bright just inside the limb, slate to the sides; an arc of 80 degrees (1.2856 r by 0.3259 r). */
+.earth::after { --r: calc(var(--planet) / 2); content: ""; position: absolute; left: calc(var(--sun-x) - var(--r) * 0.6428); top: var(--horizon);
+  width: calc(var(--r) * 1.2856); height: calc(var(--r) * 0.3259); background: url(earth-light.jpg) 0 0 / 100% 100% no-repeat; mix-blend-mode: multiply; }
+/* The surface: cloud tops and their shadows, already curved (a 62-degree arc; box 1.0306 r by 0.2461 r), in two bands turning about the planet's centre. */
+.surface { --r: calc(var(--planet) / 2); position: absolute; left: calc(var(--sun-x) - var(--r) * 0.5153); top: var(--horizon); width: calc(var(--r) * 1.0306); height: calc(var(--r) * 0.2461);
+  background: url(earth-detail.jpg) 0 0 / 100% 100% no-repeat; transform-origin: 50% var(--r); transform: rotate(var(--to)); }
+/* Sharper where WebP is read: the band at the size a 1440 px screen shows it; the JPEG above, smaller, is the fallback. */
+.surface { background-image: image-set(url(earth-detail.webp) type("image/webp"), url(earth-detail.jpg) type("image/jpeg")); }
+/* The band by the rim turns slower than the one below it, which is nearer, so the surface reads as a sphere turning; the lower one fades in over the other. */
+.outer { --from: 4deg; --to: -4deg; mask-image: radial-gradient(circle var(--r) at 50% var(--r), transparent calc(100% - var(--r) * 0.075), #000 calc(100% - var(--r) * 0.06)); }
+.inner { --from: 6deg; --to: -6deg; mask-image: radial-gradient(circle var(--r) at 50% var(--r), #000 calc(100% - var(--r) * 0.06), transparent calc(100% - var(--r) * 0.045)); }
+/* The lit air, seen against space and against the dark ground: one band straddling the limb, on the planet's own circle (100% is the limb). */
+.air, .air::before, .air::after { position: absolute; inset: 0; }
+.air::before, .air::after { content: ""; --limb: circle calc(var(--planet) / 2) at var(--sun-x) calc(var(--horizon) + var(--planet) / 2); }
+/* Warm: brightest at the limb, falling inward and outward; strongest within 8% of the screen either side of the sun, never gone at the edges. The masks are placed from --sun-x, so they follow a sun off the centre. */
+.air::before {
+  background: radial-gradient(var(--limb), transparent calc(100% - 4 * var(--hi)), rgb(255 176 140 / 0.05) calc(100% - 3 * var(--hi)), rgb(255 176 140 / 0.11) calc(100% - 2 * var(--hi)),
+    rgb(255 176 140 / 0.29) calc(100% - var(--hi)), rgb(255 176 140 / 0.48) calc(100% - var(--hi) / 2), rgb(255 222 190 / 0.72) 100%, rgb(255 168 124 / 0.62) calc(100% + var(--ho) / 4),
+    rgb(255 168 124 / 0.49) calc(100% + var(--ho) / 2), rgb(255 168 124 / 0.29) calc(100% + var(--ho)), rgb(255 168 124 / 0.18) calc(100% + 1.5 * var(--ho)),
+    rgb(255 168 124 / 0.11) calc(100% + 2 * var(--ho)), rgb(255 168 124 / 0.04) calc(100% + 3 * var(--ho)), transparent calc(100% + 4.5 * var(--ho)));
+  mask-image: linear-gradient(90deg, rgb(0 0 0 / 0.1), rgb(0 0 0 / 0.14) calc(var(--sun-x) - 46%), rgb(0 0 0 / 0.36) calc(var(--sun-x) - 35%), rgb(0 0 0 / 0.8) calc(var(--sun-x) - 20%), #000 calc(var(--sun-x) - 8%),
+    #000 calc(var(--sun-x) + 8%), rgb(0 0 0 / 0.8) calc(var(--sun-x) + 20%), rgb(0 0 0 / 0.36) calc(var(--sun-x) + 35%), rgb(0 0 0 / 0.14) calc(var(--sun-x) + 46%), rgb(0 0 0 / 0.1));
+}
+/* Cool: the far limb, away from the sun, mostly just inside the edge. */
+.air::after {
+  background: radial-gradient(var(--limb), transparent calc(100% - 3 * var(--hi)), rgb(150 170 210 / 0.1) calc(100% - 1.5 * var(--hi)), rgb(150 170 210 / 0.22) calc(100% - 0.3 * var(--hi)),
+    rgb(170 180 205 / 0.1) 100%, rgb(150 165 200 / 0.08) calc(100% + 1.5 * var(--ho)), transparent calc(100% + 4 * var(--ho)));
+  mask-image: linear-gradient(90deg, rgb(0 0 0 / 0.7), rgb(0 0 0 / 0.7) calc(var(--sun-x) - 40%), transparent calc(var(--sun-x) - 16%), transparent calc(var(--sun-x) + 16%), rgb(0 0 0 / 0.7) calc(var(--sun-x) + 40%), rgb(0 0 0 / 0.7));
+}
+/* The daybreak's sun: a compact core on the rim, glare spilling onto the planet, a faint round glare; screened, since glare is light that adds to what it falls on. */
+.daybreak .sun { --core: clamp(1.5rem, 2.3vw, 2.1rem); mix-blend-mode: screen;
+  background: radial-gradient(var(--core) calc(var(--core) * 0.7) at 50% 50%, #fff 25%, rgb(255 250 236 / 0.9) 45%, rgb(255 236 200 / 0.5) 70%, rgb(255 220 170 / 0.2) 88%, transparent),
+    radial-gradient(clamp(8rem, 20vw, 20rem) clamp(5rem, 9vw, 8rem) at 50% 50%, rgb(255 244 222 / 0.95), rgb(255 232 190 / 0.9) 12%, rgb(255 198 135 / 0.8) 20%, rgb(250 165 100 / 0.66) 30%, rgb(242 145 85 / 0.48) 40%, rgb(225 120 70 / 0.24) 60%, rgb(190 100 66 / 0.08) 85%, transparent),
+    radial-gradient(circle 16rem, rgb(255 230 200 / 0.22), rgb(255 206 160 / 0.1) 10%, rgb(255 180 120 / 0.05) 26%, rgb(255 160 100 / 0.02) 52%, transparent); }
+
+/* The missing page: a small dawn, with the way back. */
+.lost { --horizon: 70%; --halo: min(70vw, 44rem); --glow: 6rem;
+  min-height: max(100svh, 30rem); display: grid; align-content: start; justify-items: center; gap: 0.5rem; padding: 28svh var(--gutter) 0; text-align: center; }
+.lost h1 { font: 400 clamp(1.875rem, 1.4rem + 2vw, 3rem)/1.15 var(--font-display); }
+.lost p { color: var(--muted); }
+.lost a { display: inline-flex; align-items: center; min-height: 48px; }
+
+/* Going to Saga's page, its name travels into that page's title. */
+@view-transition { navigation: auto; }
+::view-transition-group(saga) { animation-duration: 0.4s; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+/* Motion every page uses: a fade, and the sun's bloom. */
+@keyframes appear { from { opacity: 0; } }
+@keyframes bloom { from { opacity: 0; transform: translate(-50%, -50%) scale(0.3); } }

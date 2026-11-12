@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="320">
+<!-- Saga's paper: a seamless tile (stitched noise) of soft mottling and a fine tooth, in warm brown at low alpha over the page's cream. -->
+<filter id="mottle" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.0125" numOctaves="3" seed="7" stitchTiles="stitch"/>
+  <feColorMatrix values="0 0 0 0 0.45  0 0 0 0 0.35  0 0 0 0 0.22  0.9 0 0 0 -0.4"/></filter>
+<filter id="tooth" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="3" stitchTiles="stitch"/>
+  <feColorMatrix values="0 0 0 0 0.3  0 0 0 0 0.24  0 0 0 0 0.16  1.3 0 0 0 -0.6"/></filter>
+<rect width="320" height="320" filter="url(#mottle)" opacity="0.28"/>
+<rect width="320" height="320" filter="url(#tooth)" opacity="0.5"/>
+</svg>

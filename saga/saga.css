@@ -1,0 +1,198 @@
+/* Saga's page, after ../site.css: light only, on paper (the founder, 12 Nov), with the founder's illustrations.
+   The story runs from the problem to the solution (the founder: "the flow should be from the problem to the solution"),
+   in grasp.study's placements: the cover on a block, a band, sheets, three numbered cards. No part of the company's daybreak. */
+
+:root {
+  --bg: #f6f1e7; --sheet: #fdfaf4; --band: #eee5d5; --text: #1f1b17; --ink: #2a2420; --muted: #564e45; --line: #ddd3c3; --edge: #857a6c;
+  --ember: #b45f24; --block: #eba98f; --act: #a8432c;
+  --ink-a: #3a3fb8; --ink-b: #a06800; --ink-c: #0b8378;
+  --ink-a-t: #d4cfd9; --ink-b-t: #e4d5bb; --ink-c-t: #ccdacf;
+  --shadow: 0 1px 2px rgb(60 40 20 / 0.06), 0 6px 18px rgb(60 40 20 / 0.07);
+  /* One rhythm: --section between parts, --inner inside one (a heading to its content, a lead to what follows), --col-gap
+     between the two columns of every two-column part, so their middle lines meet. */
+  --section: clamp(4.5rem, 2.5rem + 5vw, 7rem); --inner: clamp(2.5rem, 2rem + 1.5vw, 3.5rem); --col-gap: 3rem;
+  /* site.css's names, pointed at this page's tokens, so the shared rules follow them. */
+  --night: var(--bg); --light: var(--text); --hairline: var(--line);
+  color-scheme: light;
+}
+body { background: var(--bg) url(paper.svg); }
+p { max-width: 64ch; text-wrap: pretty; }
+h2 { font: 400 clamp(2rem, 1.4rem + 2.4vw, 3.25rem)/1.1 var(--font-display); letter-spacing: -0.01em; max-width: 24ch; text-wrap: balance; }
+.label, .when { font: 400 0.8125rem/1.5 var(--font-text); letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+[id] { scroll-margin-top: 1rem; }
+ul, ol, dl, dd, figure { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+img { display: block; width: 100%; height: auto; }
+.lead { font: 400 clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem)/1.4 var(--font-display); }
+
+/* Saga's logo: the word with its star at the upper right, the star in terracotta (WEB-Q57 (b)). */
+.logo { position: relative; display: inline-block; padding-right: 0.62em; }
+.logo .star { position: absolute; right: 0.02em; top: -0.14em; width: 0.62em; height: 0.62em; fill: var(--act); overflow: visible; }
+
+/* The dot picture: lines by hand, round at their ends. */
+.defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+.draw { display: block; width: 100%; height: auto; overflow: visible; fill: none; stroke: var(--ink); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.ink-a { stroke: var(--ink-a); } .ink-b { stroke: var(--ink-b); } .ink-c { stroke: var(--ink-c); }
+.dot-a { fill: var(--ink-a-t); stroke: var(--ink-a); } .dot-b { fill: var(--ink-b-t); stroke: var(--ink-b); } .dot-c { fill: var(--ink-c-t); stroke: var(--ink-c); }
+.thin { stroke: var(--muted); stroke-dasharray: 5 4; }
+
+/* The live background: four soft washes of colour, fixed behind the page, as watercolour on the paper; none stronger than 0.06. */
+.live { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.live span { position: absolute; width: 40vmax; height: 40vmax; border-radius: 50%; background: radial-gradient(closest-side, var(--w), transparent); transform: scale(2.2); }
+.live span:nth-child(1) { --w: rgb(239 138 111 / 0.06); left: -8vmax; top: -6vmax; --dx: 14vmax; --dy: 8vmax; }
+.live span:nth-child(2) { --w: rgb(235 156 191 / 0.06); right: -10vmax; top: 18vmax; --dx: -12vmax; --dy: 10vmax; }
+.live span:nth-child(3) { --w: rgb(195 156 227 / 0.06); left: 6vmax; bottom: -4vmax; --dx: 10vmax; --dy: -12vmax; }
+.live span:nth-child(4) { --w: rgb(169 196 125 / 0.06); right: 4vmax; bottom: -14vmax; --dx: -14vmax; --dy: -8vmax; }
+/* Its pause, at the cover's lower right. */
+.pause { position: absolute; right: max(0.5rem, env(safe-area-inset-right)); bottom: 0.5rem; z-index: 2; display: none; }
+.pause input { appearance: none; -webkit-appearance: none; display: block; width: 48px; height: 48px; margin: 0; border-radius: 50%; color: var(--text); opacity: 0.6; cursor: pointer;
+  background: linear-gradient(currentColor, currentColor) 18px 17px / 4px 14px no-repeat, linear-gradient(currentColor, currentColor) 26px 17px / 4px 14px no-repeat; }
+.pause input:checked { background: linear-gradient(to top right, currentColor 50%, transparent 50%) 19px 16px / 12px 8px no-repeat,
+  linear-gradient(to bottom right, currentColor 50%, transparent 50%) 19px 24px / 12px 8px no-repeat; }
+.pause input:hover, .pause input:focus-visible { opacity: 1; }
+.pause input:focus-visible { outline: 2px solid var(--text); outline-offset: -2px; }
+
+/* Buttons: one filled shape for the one action, talking to us. */
+.button { display: inline-flex; align-items: center; min-height: 48px; padding: 0 1.5rem; border-radius: 24px; background: var(--act); color: var(--sheet); font-weight: 600; text-decoration: none; }
+.button:hover { text-decoration: underline; text-decoration-color: currentColor; }
+.button.small { padding: 0 1.125rem; }
+
+/* The bar: the logo; a link and the action. */
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.75rem max(var(--gutter), calc(50% - 36rem + var(--gutter))); }
+.bar a { display: inline-flex; align-items: center; min-height: 48px; }
+.bar a:not(.button) { text-decoration: none; }
+.bar a:not(.button):hover { text-decoration: underline; }
+.bar nav { display: flex; align-items: center; column-gap: 1.5rem; font-size: 1rem; }
+.house { font: 400 1.5rem/1 var(--font-display); }
+.bar .house { display: inline-block; min-height: 0; padding-block: 0.75rem 0.5rem; }
+.wide { display: none !important; }
+@media (min-width: 40rem) { .wide { display: inline-flex !important; } }
+
+/* The cover: the words, and the lecture hall on a sheet laid over a coloured block. */
+.cover { position: relative; display: grid; gap: var(--inner); padding: 2.5rem var(--gutter) var(--section); }
+.cover-text { display: grid; justify-items: start; gap: 1.25rem; }
+.p-title { font: 400 clamp(3.75rem, 2.4rem + 5.6vw, 7rem)/1 var(--font-display); letter-spacing: -0.02em; view-transition-name: saga; }
+.p-tag { display: block; margin-top: 0.75rem; font: italic 400 clamp(1.375rem, 1.14rem + 0.95vw, 2rem)/1.2 var(--font-display); color: var(--muted); }
+.lede { font: 400 clamp(1.5rem, 1.25rem + 1vw, 2rem)/1.25 var(--font-display); max-width: 20ch; text-wrap: balance; }
+.chip { font-size: 1rem; color: var(--muted); max-width: 30rem; text-wrap: balance; }
+.chip::before { content: ""; display: inline-block; width: 6px; height: 6px; margin-right: 0.6em; vertical-align: 0.1em; border: 1.5px solid var(--ember); border-radius: 50%; }
+.actions { margin-top: 0.5rem; }
+.frame { position: relative; isolation: isolate; margin: 0 0.75rem 0.75rem 0; }
+.frame::before { content: ""; position: absolute; inset: 1.5rem -0.75rem -0.75rem 1.5rem; z-index: -1; border-radius: 1.5rem; background: var(--block); }
+.frame img { border-radius: 1.5rem; box-shadow: var(--shadow); }
+@media (min-width: 60rem) {
+  .cover { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: center; column-gap: var(--col-gap); min-height: min(calc(100svh - 72px), 52rem);
+    padding: 2rem max(var(--gutter), calc(50% - 36rem + var(--gutter))) var(--section); }
+  .frame { margin: 0 1.5rem 1.5rem 0; }
+  .frame::before { inset: 2.5rem -1.5rem -1.5rem 2.5rem; }
+}
+
+/* The parts: the bar's width and edges, headings centred; each part's space is above it, and the last one's below it too. */
+.part { max-width: 72rem; margin-inline: auto; padding: var(--section) var(--gutter) 0; }
+main > .part:last-child { padding-bottom: var(--section); }
+.centre { margin-inline: auto; text-align: center; }
+.part > h2 { margin-bottom: var(--inner); }
+/* The founder's pictures each sit on a sheet, as the cover's does: their cream never meets the grained paper, so no seam shows. */
+.sheet { display: block; overflow: hidden; border-radius: 1.25rem; background: var(--sheet); box-shadow: var(--shadow); }
+
+/* 1, the problem: the teachers, the loop, then the band of what the exam and AI miss. */
+#problem .part { padding-bottom: var(--section); }
+.teachers { display: block; max-width: 40rem; margin: 0 auto var(--inner); }
+.band { padding: var(--section) max(var(--gutter), calc(50% - 36rem + var(--gutter))); background: var(--band) url(paper.svg); }
+.three { display: grid; gap: 2rem; }
+.three li { display: grid; gap: 0.5rem; align-content: start; padding-top: 1.25rem; border-top: 1px solid var(--edge); }
+.word { font: italic 400 clamp(1.75rem, 1.4rem + 1.2vw, 2.25rem)/1.15 var(--font-display); }
+.three p:not(.word) { color: var(--muted); }
+.ai { display: grid; gap: 0.75rem; margin-top: var(--inner); padding-top: 1.5rem; border-top: 1px solid var(--edge); }
+.ai p { max-width: 70ch; }
+.ai strong { font: italic 400 1.375rem/1.3 var(--font-display); }
+.ai sup a { padding: 0 0.15em; text-decoration: none; }
+.source { font-size: 0.875rem; color: var(--muted); }
+@media (min-width: 48rem) { .three { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3rem; } }
+
+/* 2, the turn: the picture beside the second measurement. */
+.grid { display: grid; gap: 1.25rem; }
+.tile { display: grid; gap: 0.75rem; align-content: start; padding: 1.5rem; border-radius: 1.25rem; background: var(--sheet); box-shadow: var(--shadow); }
+.picture { gap: 1.25rem; }
+.picture .link { stroke: var(--edge); stroke-width: 2.2; }
+.picture .lab { fill: var(--text); stroke: none; font: 400 30px var(--font-text); }
+.picture .mark { stroke-width: 3.8; }
+.picture figcaption { max-width: 60ch; color: var(--muted); }
+.picture figcaption .label { display: block; margin-bottom: 0.25rem; }
+.second { align-content: center; gap: 1.25rem; }
+.second dl { display: grid; gap: 1rem; }
+.second dl div { display: grid; gap: 0.25rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.second dt { font: italic 400 1.25rem/1.3 var(--font-display); }
+.second dd { color: var(--muted); }
+@media (min-width: 60rem) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--col-gap); } .picture, .second { padding: 2rem; } }
+
+/* 3, the solution: three numbered sheets, each a picture above its words. */
+#class > .lead { max-width: 46ch; margin-bottom: var(--inner); text-wrap: balance; }
+#class strong { font-weight: 600; }
+.steps { display: grid; gap: 1.25rem; counter-reset: step; }
+.steps li { counter-increment: step; display: grid; gap: 0.5rem; align-content: start; padding: 0.75rem 0.75rem 1.5rem; border-radius: 1.25rem; background: var(--sheet); box-shadow: var(--shadow); }
+.steps li > p { padding-inline: 0.75rem; }
+.fig { display: block; margin-bottom: 0.75rem; }
+.fig img { border-radius: 0.875rem; }
+.steps .when { display: flex; align-items: center; gap: 0.75rem; }
+.steps .when::before { content: counter(step); display: grid; place-items: center; flex: none; width: 2.25rem; height: 2.25rem;
+  font: 400 1.125rem/1 var(--font-display); letter-spacing: 0; color: var(--text); border: 1.5px solid var(--text); border-radius: 55% 45% 50% 50% / 50% 55% 45% 50%; }
+.statement { position: relative; max-width: 26ch; margin: var(--inner) auto 0; padding-bottom: 1.25rem; text-align: center;
+  font: italic 400 clamp(1.875rem, 1.46rem + 1.71vw, 3rem)/1.15 var(--font-display); letter-spacing: -0.01em; text-wrap: balance; }
+.statement::after { content: ""; position: absolute; left: 19%; bottom: 0; width: 62%; height: 0.6rem; border-bottom: 2px solid var(--ember); border-radius: 0 0 70% 30% / 0 0 100% 100%; }
+@media (min-width: 60rem) { .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+/* 4 and 5, the student and the pilot: a picture beside the words. */
+.split { display: grid; gap: var(--inner); align-items: center; }
+.body { display: grid; gap: 1.25rem; align-content: start; }
+.side { display: block; width: 100%; }
+.contact { font: 400 clamp(1.375rem, 1rem + 1.6vw, 2rem)/1.3 var(--font-display); }
+.contact a { display: inline-flex; align-items: center; min-height: 48px; overflow-wrap: anywhere; }
+@media (min-width: 60rem) { .split { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--col-gap); } }
+
+/* For investors: the last part, on the deeper paper, set apart from what is written for colleges. */
+.investors { margin-top: var(--section); }
+.conviction { display: grid; gap: 1rem; align-self: start; }
+.conviction h2 { font: italic 400 clamp(1.75rem, 1.3rem + 1.6vw, 2.5rem)/1.2 var(--font-display); max-width: 20ch; }
+
+/* The foot: one line, and the host's note last, small and quiet. */
+.foot { padding: 2rem max(var(--gutter), calc(50% - 36rem + var(--gutter))); border-top: 1px solid var(--line); }
+.foot-line { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 1.5rem; max-width: none; color: var(--muted); font-size: 0.9375rem; }
+.foot-line .logo { font: 400 1.375rem/1 var(--font-display); color: var(--text); text-decoration: none; }
+.foot-line > a:not(.logo) { display: inline-flex; align-items: center; min-height: 48px; overflow-wrap: anywhere; }
+/* The maker's name in capitals, spaced as the company page draws it. */
+.maker { letter-spacing: 0.16em; font-size: 0.875em; }
+.host { margin-top: 0.75rem; max-width: none; font-size: 0.8125rem; color: var(--muted); }
+.host a { text-decoration-color: currentColor; text-decoration-thickness: 1px; }
+
+@media (forced-colors: active) {
+  .draw, .ink-a, .ink-b, .ink-c, .thin, .dot-a, .dot-b, .dot-c, .picture .link { stroke: CanvasText; }
+  .dot-a, .dot-b, .dot-c { fill: Canvas; }
+  .picture .lab, .logo .star { fill: CanvasText; }
+  .button { border: 2px solid ButtonText; }
+  .tile, .steps li, .frame img, .sheet { border: 1px solid CanvasText; }
+  .live, .frame::before { display: none; }
+}
+@media print { *, *::before, *::after { animation: none !important; } .live, .pause { display: none; } }
+
+/* ---- Motion: opacity and transform only; nothing loops. ---- */
+@media (prefers-reduced-motion: no-preference) {
+  /* The background breathes for two minutes, then rests; only where the pause can work (:has). */
+  @supports selector(:has(*)) {
+    .pause { display: block; }
+    .live span { animation: drift 20s ease-in-out 6 alternate both; will-change: transform, opacity; }
+    .live span:nth-child(2) { animation-duration: 30s; animation-iteration-count: 4; }
+    .live span:nth-child(3) { animation-duration: 24s; animation-iteration-count: 5; }
+    .live span:nth-child(4) { animation-duration: 40s; animation-iteration-count: 3; }
+    :root:has(#still:checked) .live span { animation-play-state: paused; }
+  }
+  /* The arrival, once: the lecture hall rises; the words are there from the first frame. */
+  .frame { animation: rise 0.7s 0.2s var(--arrive) both; }
+}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .teachers, .picture .draw, .fig, .side { animation: rise linear both; animation-timeline: view(); animation-range: entry 10% cover 30%; }
+  }
+}
+@keyframes drift { from { opacity: 0.75; } to { opacity: 1; transform: translate(var(--dx), var(--dy)) scale(2.7); } }
+@keyframes rise { from { opacity: 0; transform: translateY(12px); } }

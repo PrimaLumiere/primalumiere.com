@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<!-- No script and no other origin is allowed. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noai, noimageai">
+<meta name="description" content="PrimaLumiere is building Saga: Of People, Through People, a teacher-led classroom tool for engineering colleges in India.">
+<title>PrimaLumiere</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="home.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<main id="main">
+  <section class="dawn daybreak first" id="top" aria-labelledby="top-h">
+    <!-- Back to front: stars, the sun's glow, its disc (hidden by the planet until it rises), the planet, the lit air, the sun's light. -->
+    <div class="sky" aria-hidden="true"><span class="stars"><span class="turn"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span><span class="halo"></span><span class="disc"></span>
+      <!-- The planet: one circle, its top as a smooth stroked arc. Strokes keep their pixel widths; each fades along the arc by its gradient. -->
+      <svg class="limb" viewBox="0 0 1000 1000" fill="none" focusable="false">
+        <defs>
+          <path id="limb-arc" d="M117 178.6A500 500 0 0 1 883 178.6" vector-effect="non-scaling-stroke"/>
+          <path id="limb-body" d="M117 178.6A500 500 0 0 1 883 178.6V1000H117Z"/>
+          <!-- Mirrored about the sun (x 500): offset 1 is 40% of the planet's width away. -->
+          <linearGradient id="limb-rim" gradientUnits="userSpaceOnUse" x1="500" x2="900" spreadMethod="reflect">
+            <stop stop-color="#fffdf6"/><stop offset=".14" stop-color="#fffae5"/><stop offset=".24" stop-color="#ffe4c9" stop-opacity=".86"/><stop offset=".32" stop-color="#dfc2b2" stop-opacity=".6"/>
+            <stop offset=".48" stop-color="#b9a9a8" stop-opacity=".46"/><stop offset=".75" stop-color="#9aa0b0" stop-opacity=".26"/><stop offset="1" stop-color="#9aa0b0" stop-opacity=".17"/>
+          </linearGradient>
+          <linearGradient id="limb-hot" gradientUnits="userSpaceOnUse" x1="500" x2="900" spreadMethod="reflect">
+            <stop stop-color="#fff"/><stop offset=".1" stop-color="#fff4e2" stop-opacity=".9"/><stop offset=".2" stop-color="#ffe2bc" stop-opacity=".66"/><stop offset=".3" stop-color="#ffcf9c" stop-opacity=".36"/><stop offset=".42" stop-color="#ffc890" stop-opacity=".12"/><stop offset=".55" stop-color="#ffc890" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <use href="#limb-body" fill="#000"/>
+        <!-- The rim: warm to the screen's edges, overexposed near the sun. -->
+        <g class="rim">
+          <use href="#limb-arc" stroke="url(#limb-rim)" stroke-width="7" stroke-opacity=".1"/>
+          <use href="#limb-arc" stroke="url(#limb-rim)" stroke-width="4" stroke-opacity=".3"/>
+          <use href="#limb-arc" stroke="url(#limb-rim)" stroke-width="1.6"/>
+        </g>
+        <g class="hot">
+          <use href="#limb-arc" stroke="url(#limb-hot)" stroke-width="12" stroke-opacity=".3"/>
+          <use href="#limb-arc" stroke="url(#limb-hot)" stroke-width="5"/>
+        </g>
+      </svg>
+      <!-- The turning earth: its surface turns along the rim, the band below a little faster, while its light stays under the sun.
+           Each band is two copies, half a cycle apart, crossing over so the turn never ends. -->
+      <span class="earth"><span class="pair"><span class="surface outer"></span><span class="surface outer later"></span></span><span class="pair"><span class="surface inner"></span><span class="surface inner later"></span></span></span>
+      <span class="air"></span><span class="sun"></span></div>
+    <!-- The name is drawn: one filled outline per letter, thick and thin strokes, wide letters, open spacing; the text stays for screen readers. -->
+    <h1 id="top-h"><span class="sr">PrimaLumiere</span>
+      <svg class="mark" viewBox="-4 -4 2267.45 108" aria-hidden="true" focusable="false">
+        <g><path d="M-3.25 -3.25H10.75V103.25H-3.25ZM-3.25 -3.25H51.5A29.25 29.25 0 0 1 51.5 55.25H-3.25ZM10.75 4.25V47.75H51.5A16.25 21.75 0 0 0 51.5 4.25Z"/></g>
+        <g><path d="M202.3 -3.25H216.3V103.25H202.3ZM202.3 -3.25H258.05A28.25 28.25 0 0 1 258.05 53.25H202.3ZM216.3 4.25V45.75H258.05A15.25 20.75 0 0 0 258.05 4.25ZM231.7 46.75L247.31 46.75L294.3 103.25L278.69 103.25Z"/></g>
+        <g><path d="M410.98 -3.25H424.98V103.25H410.98Z"/></g>
+        <g><path d="M541.65 -3.25H549.15V103.25H541.65ZM659.65 -3.25H673.65V103.25H659.65ZM541.65 -3.25L558.84 -3.25L611.64 70.84L664.44 -3.25L673.65 -3.25L610.05 86L605.25 86Z"/></g>
+        <g><path d="M774.07 103.25L782.52 103.25L828.69 13.92L878.08 103.25L894.07 103.25L835.19 -3.25L829.12 -3.25Z"/></g>
+        <g><path d="M994.5 -3.25H1008.5V103.25H994.5ZM994.5 95.75H1068.5V103.25H994.5Z"/></g>
+        <g><path d="M1181.28 -3.25V69A46 34.25 0 0 0 1273.28 69V-3.25H1265.78V69A35.25 26.75 0 0 1 1195.28 69V-3.25Z"/></g>
+        <g><path d="M1402.62 -3.25H1410.12V103.25H1402.62ZM1520.62 -3.25H1534.62V103.25H1520.62ZM1402.62 -3.25L1419.82 -3.25L1472.62 70.84L1525.42 -3.25L1534.62 -3.25L1471.03 86L1466.22 86Z"/></g>
+        <g><path d="M1651.3 -3.25H1665.3V103.25H1651.3Z"/></g>
+        <g><path d="M1781.97 -3.25H1853.97V4.25H1795.97V46.25H1847.97V53.75H1795.97V95.75H1853.97V103.25H1781.97Z"/></g>
+        <g><path d="M1977.15 -3.25H1991.15V103.25H1977.15ZM1977.15 -3.25H2032.9A28.25 28.25 0 0 1 2032.9 53.25H1977.15ZM1991.15 4.25V45.75H2032.9A15.25 20.75 0 0 0 2032.9 4.25ZM2006.55 46.75L2022.16 46.75L2069.15 103.25L2053.54 103.25Z"/></g>
+        <g><path d="M2190.7 -3.25H2262.7V4.25H2204.7V46.25H2256.7V53.75H2204.7V95.75H2262.7V103.25H2190.7Z"/></g>
+      </svg>
+    </h1>
+    <!-- Saga, under the sun on the planet's dark side: the way to its page, in the serif of that page's title. -->
+    <!-- Saga's star (the founder's reference, 12 Nov): thin rays from a bright point, the vertical longest; here in the word's own colour. -->
+    <a class="to-saga" href="saga/">Saga<svg class="star" viewBox="-12 -12 24 24" aria-hidden="true" focusable="false">
+      <path d="M0 -12L1.25 0L0 12L-1.25 0ZM10.5 0L0 1.15L-10.5 0L0 -1.15ZM5.66 -5.66L0.6 0.6L-5.66 5.66L-0.6 -0.6ZM5.66 5.66L-0.6 0.6L-5.66 -5.66L0.6 -0.6ZM2.14 -5.17L0.46 0.19L-2.14 5.17L-0.46 -0.19ZM5.17 -2.14L0.19 0.46L-5.17 2.14L-0.19 -0.46ZM5.17 2.14L-0.19 0.46L-5.17 -2.14L0.19 -0.46ZM2.14 5.17L-0.46 0.19L-2.14 -5.17L0.46 -0.19Z"/><circle r="2.1"/>
+    </svg></a>
+    <!-- The earth and the sky turn for as long as the page is open and the stars breathe for six minutes; this pauses them. A native checkbox, so keys and screen readers work without script. -->
+    <label class="pause"><input type="checkbox" id="turn"><span class="sr">Pause the moving sky</span></label>
+  </section>
+</main>
+</body>
+</html>
