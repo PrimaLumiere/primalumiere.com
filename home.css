@@ -132,7 +132,8 @@
 
 /* The turning's pause, bottom right: a native checkbox drawn as a pause sign (a play sign once paused), quiet until hovered or focused. */
 .pause { position: absolute; right: max(0.5rem, env(safe-area-inset-right)); bottom: max(0.5rem, env(safe-area-inset-bottom)); z-index: 2; }
-.pause input { appearance: none; display: block; width: 48px; height: 48px; margin: 0; border-radius: 50%; color: var(--light); opacity: 0.55; cursor: pointer;
+/* 0.4 is as faint as it goes: the sign keeps 3:1 against the night behind it (WCAG 1.4.11); it brightens on hover and focus. */
+.pause input { appearance: none; display: block; width: 48px; height: 48px; margin: 0; border-radius: 50%; color: var(--light); opacity: 0.4; cursor: pointer;
   background: linear-gradient(currentColor, currentColor) 18px 17px / 4px 14px no-repeat, linear-gradient(currentColor, currentColor) 26px 17px / 4px 14px no-repeat; }
 .pause input:checked { background: linear-gradient(to top right, currentColor 50%, transparent 50%) 19px 16px / 12px 8px no-repeat,
   linear-gradient(to bottom right, currentColor 50%, transparent 50%) 19px 24px / 12px 8px no-repeat; }
@@ -196,5 +197,6 @@
 @keyframes turn { from { transform: rotate(var(--from)); } to { transform: rotate(var(--to)); } }
 @keyframes dissolve { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
 @keyframes wheel { to { transform: rotate(-24deg); } }
-@keyframes twinkle { 0%, 100% { opacity: 0.9; transform: scale(1) rotate(0deg); } 30% { opacity: 0.3; transform: scale(0.6) rotate(-12deg); } 60% { opacity: 1; transform: scale(1.25) rotate(12deg); } }
+/* The star twinkles in place: it dims and brightens and swells a little, and never turns (the founder, 12 Nov). */
+@keyframes twinkle { 0%, 100% { opacity: 0.9; transform: scale(1); } 30% { opacity: 0.3; transform: scale(0.6); } 60% { opacity: 1; transform: scale(1.25); } }
 @keyframes glint { 0%, 100% { opacity: 0.9; } 30% { opacity: 0.3; } 60% { opacity: 1; } }
