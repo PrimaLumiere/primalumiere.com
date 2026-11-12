@@ -1,54 +1,72 @@
+# AI crawlers and assistants are asked to keep out, except for /llms.txt, which says who we are and how to reach us (WEB-Q61 (a)).
 User-agent: *
 Allow: /
 Content-Signal: search=yes, ai-train=no, ai-input=no
 
 User-agent: GPTBot
+Allow: /llms.txt
 Disallow: /
 
 User-agent: OAI-SearchBot
+Allow: /llms.txt
 Disallow: /
 
 User-agent: ChatGPT-User
+Allow: /llms.txt
 Disallow: /
 
 User-agent: ClaudeBot
+Allow: /llms.txt
 Disallow: /
 
 User-agent: Claude-User
+Allow: /llms.txt
 Disallow: /
 
 User-agent: Claude-SearchBot
+Allow: /llms.txt
 Disallow: /
 
 User-agent: anthropic-ai
+Allow: /llms.txt
 Disallow: /
 
 User-agent: Google-Extended
+Allow: /llms.txt
 Disallow: /
 
 User-agent: CCBot
+Allow: /llms.txt
 Disallow: /
 
 User-agent: PerplexityBot
+Allow: /llms.txt
 Disallow: /
 
 User-agent: Perplexity-User
+Allow: /llms.txt
 Disallow: /
 
 User-agent: Applebot-Extended
+Allow: /llms.txt
 Disallow: /
 
 User-agent: meta-externalagent
+Allow: /llms.txt
 Disallow: /
 
 User-agent: Amazonbot
+Allow: /llms.txt
 Disallow: /
 
 User-agent: Bytespider
+Allow: /llms.txt
 Disallow: /
 
 User-agent: cohere-ai
+Allow: /llms.txt
 Disallow: /
 
 User-agent: Diffbot
+Allow: /llms.txt
 Disallow: /

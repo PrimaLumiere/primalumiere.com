@@ -123,9 +123,20 @@ h1, h2, p { margin: 0; }
 .lost p { color: var(--muted); }
 .lost a { display: inline-flex; align-items: center; min-height: 48px; }
 
-/* Going to Saga's page, its name travels into that page's title. */
+/* Between the pages (the founder, 12 Nov: "can we have a smooth transition"): the night fades into Saga's paper, then Saga's page
+   rises out of it, while "Saga" travels from under the sun into the page's title; no cut, no flash of black against cream.
+   Browsers without cross-document view transitions (Firefox; older Safari) change pages as before. */
 @view-transition { navigation: auto; }
-::view-transition-group(saga) { animation-duration: 0.4s; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+::view-transition { background: #f6f1e7; }
+::view-transition-old(root) { animation: vt-out 0.55s cubic-bezier(0.4, 0, 0.2, 1) both; }
+::view-transition-new(root) { animation: vt-in 0.55s 0.35s cubic-bezier(0.16, 1, 0.3, 1) both; }
+::view-transition-group(saga) { animation-duration: 0.9s; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+@keyframes vt-out { to { opacity: 0; } }
+@keyframes vt-in { from { opacity: 0; transform: translateY(10px); } }
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root), ::view-transition-new(root), ::view-transition-group(saga) { animation-duration: 0.2s; animation-delay: 0s; }
+  ::view-transition-new(root) { animation-name: appear; }
+}
 
 /* Motion every page uses: a fade, and the sun's bloom. */
 @keyframes appear { from { opacity: 0; } }

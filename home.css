@@ -173,6 +173,17 @@
 .first .surface { animation: turn 90s linear infinite both, dissolve 90s linear infinite both; }
 .first .surface.later { animation-delay: -45s; }
 .first .turn { animation: wheel 270s linear infinite; }
+/* On a phone the planet is a third the size in pixels (260vw, not 360vw of a far wider screen), so the same turn moved its clouds
+   under 1 px a second and could not be seen (the founder, 12 Nov). There the bands turn wider and faster, about as many pixels a
+   second as on a laptop (the rim 3.5 to 4 px/s), still a slow drift; the angles stay inside the lit arc, so no edge of the image shows
+   (held at each end and checked at 390 px); the sky keeps the outer band's pace. */
+@media (max-width: 47.99rem) {
+  .first .outer { --from: 6deg; --to: -6deg; }
+  .first .inner { --from: 8deg; --to: -8deg; }
+  .first .surface { animation-duration: 30s, 30s; }
+  .first .surface.later { animation-delay: -15s; }
+  .first .turn { animation-duration: 60s; }
+}
 .first:has(#turn:checked) :is(.surface, .turn, .stars i) { animation-play-state: paused; }
 @media (prefers-reduced-motion: no-preference) {
   /* The disc rises from behind the planet; the sun blooms as it crests; the name comes forward. */
